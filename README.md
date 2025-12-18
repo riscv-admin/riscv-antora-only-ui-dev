@@ -5,6 +5,7 @@
   </a>
 </p>
 
+Development version of the RISC-V Anotra UI. 
 This project generates and packages the static resources that RISC-V uses for document production.
 
 This project is based on [Antora](https://antora.org).
