@@ -1,5 +1,15 @@
 <aside class="sidebar">
   <div class="content">
+    <div class="tag-toggle-container">
+      <button
+        class="tag-toggle-btn"
+        type="button"
+        onclick="document.documentElement.classList.toggle('tag-highlight-enabled');"
+      >
+        <div class="tag-toggle-switch"></div>
+        <span id="tag-toggle-label">Highlight Tags</span>
+      </button>
+    </div>
     <div
       class="toc"
       data-title="{{{detag page.title}}}"
