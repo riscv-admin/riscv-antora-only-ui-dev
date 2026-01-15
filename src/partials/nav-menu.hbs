@@ -1,3 +1,18 @@
-{{#with page.navigation}}
-{{> nav-tree navigation=this}}
-{{/with}}
+{{#if page.navigation}}
+<div class="nav-trees">
+  <div class="version-box">
+    <select data-component="{{page.component.name}}" class="select-version">
+      {{#each page.versions}}
+        <option
+          value="{{#if this.url}}{{{relativize this.url}}}{{/if}}"
+          data-version="{{this.version}}"
+          {{#if (or this.missing (not this.url))}}disabled{{/if}}
+          {{#if (eq this.version @root.page.version)}}selected{{/if}}>
+          {{this.displayVersion}}{{#if (or this.missing (not this.url))}} (unavailable){{/if}}
+        </option>
+      {{/each}}
+    </select>
+  </div>
+  {{> nav-tree navigation=page.navigation}}
+</div>
+{{/if}}

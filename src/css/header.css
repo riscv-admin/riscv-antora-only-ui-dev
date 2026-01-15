@@ -339,18 +339,6 @@ body {
   padding: 0.375rem 1rem;
 }
 
-.page-versions {
-  border-left: 1px solid var(--toolbar-border-color);
-  margin: 0;
-  padding: 0 8px;
-  height: 40px;
-  line-height: 25px;
-}
-
-.page-versions .version-menu {
-  padding-top: 40px;
-}
-
 .is-community .navbar-dropdown {
   left: -80px;
 }

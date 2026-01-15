@@ -8,6 +8,72 @@
   visibility: hidden;
 }
 
+/* Version selector styles */
+.nav-trees {
+  margin-bottom: 1rem;
+}
+
+.version-box {
+  margin: 0;
+  float: right;
+  display: inline-block;
+  margin-top: 0.3rem;
+}
+
+.version-box span {
+  color: var(--nav-text-color, #666);
+  padding-left: 1.2rem;
+  padding-top: -0.1rem;
+  font-size: 0.75rem;
+}
+
+.version-box .single-version:hover {
+  border-color: var(--link-color, white);
+  color: var(--link-color, white);
+}
+
+.version-box .single-version {
+  background-color: var(--nav-background, white);
+  border-color: var(--nav-background, white);
+  color: var(--link-color, white);
+}
+
+.select-version {
+  display: block;
+  font-size: 0.65rem;
+  color: var(--nav-text-color, #666);
+  padding: 0.1rem;
+  box-sizing: border-box;
+  margin: 0;
+  border: 1px solid var(--nav-text-color, #666);
+  border-radius: 0.5rem;
+  -moz-appearance: none;
+  background-color: var(--nav-background, #fff);
+}
+
+.select-version::-ms-expand {
+  display: none;
+}
+
+.select-version:hover {
+  border-color: var(--link-color, #0066cc);
+  color: var(--link-color, #0066cc);
+}
+
+.select-version:focus {
+  color: var(--link-color, #0066cc);
+  border-color: var(--link-color, #0066cc);
+  outline: none;
+}
+
+.select-version option {
+  font-weight: normal;
+}
+
+.clear {
+  clear: both;
+}
+
 .nav-container.is-active {
   visibility: visible;
 }
@@ -317,11 +383,6 @@ html.dark-theme button.browse-version:hover {
   margin: 0 0.8rem;
 }
 
-.navbar-brand .page-versions {
-  display: inline-block;
-  margin-left: -0.5rem;
-}
-
 .nav-menu .search {
   position: relative;
   border: 0 none;
@@ -403,49 +464,6 @@ html.dark-theme button.browse-version:hover {
   body.nav-sm .nav-menu .search {
     margin-bottom: 0;
     margin-top: 0;
-  }
-
-  body.nav-sm button.browse-version {
-    position: relative;
-    top: auto;
-    right: auto;
-    margin: 0;
-    margin-left: -5px;
-    margin-bottom: 8px;
-  }
-
-  body.nav-sm .nav-panel-menu .context {
-    margin: 0;
-    position: relative;
-  }
-
-  body.nav-sm .nav-panel-menu .context .title,
-  body.nav-sm .nav-panel-menu .context .version,
-  body.nav-sm .nav-resize,
-  body.nav-sm .DocSearch-Button span {
-    display: none;
-  }
-
-  body.nav-sm .header .navbar {
-    z-index: 900;
-  }
-
-  html.is-clipped--nav body.nav-sm .nav-menu > .nav-list {
-    display: block;
-    padding-left: 10px;
-  }
-  body.nav-sm .nav-menu > .nav-list {
-    display: none;
-    position: absolute;
-    top: 0;
-    left: 61px;
-    padding: 0.5rem 1rem;
-    width: 300px;
-    bottom: -36px;
-    background: var(--body-background-color);
-    border-right: 1px solid var(--nav-panel-divider-color);
-    z-index: 800;
-    overflow: auto;
   }
 
   body.nav-sm .toggle-sm button.nav-toggle {
