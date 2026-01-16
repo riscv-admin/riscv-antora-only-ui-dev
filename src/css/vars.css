@@ -253,7 +253,7 @@ html.dark-theme {
 
   /* General */
   --font-weight: 300;
-  --body-background-color: #003262;
+  --body-background-color: #1b1f23;
   --body-background: var(--body-background-color);
   --panel-background-color: #262a2d;
   --panel-background: var(--panel-background-color);
