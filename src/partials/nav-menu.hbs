@@ -39,6 +39,84 @@
         </div>
       {{/if}}
     {{/each}}
+  {{else if (or (eq @root.page.component.name "debug-trace-ras") (eq @root.page.component.name "techtrace") (eq @root.page.component.name "qos") (eq @root.page.component.name "reri") (eq @root.page.component.name "etrace"))}}
+    {{!-- Show all debug-trace-ras components when viewing any of them --}}
+    {{!-- First, show the debug-trace-ras overview as a simple link --}}
+    {{#each site.components}}
+      {{#if (eq this.name "debug-trace-ras")}}
+        <div class="nav-trees" data-component="{{this.name}}">
+          <ul class="nav-list">
+            <li class="nav-item"><a class="nav-link" href="{{{relativize this.url}}}">Debug, Trace, RAS Overview</a></li>
+          </ul>
+        </div>
+      {{/if}}
+    {{/each}}
+    {{!-- Then show the spec components with their version selectors and nav trees --}}
+    {{#each site.components}}
+      {{#if (or (eq this.name "techtrace") (eq this.name "qos") (eq this.name "reri") (eq this.name "etrace"))}}
+        <div class="nav-trees" data-component="{{this.name}}">
+          <div class="version-box">
+            <select data-component="{{this.name}}" class="select-version">
+              {{#each this.versions}}
+                <option
+                  value="{{#if this.url}}{{{relativize this.url}}}{{/if}}"
+                  data-version="{{this.version}}"
+                  {{#if (or this.missing (not this.url))}}disabled{{/if}}
+                  {{#if (eq this.version @root.page.version)}}selected{{/if}}>
+                  {{this.displayVersion}}{{#if (or this.missing (not this.url))}} (unavailable){{/if}}
+                </option>
+              {{/each}}
+            </select>
+          </div>
+          {{#each this.versions}}
+            {{#if this.navigation}}
+              <div data-component="{{../name}}" data-version="{{this.version}}" class="nav-version-group">
+                {{> nav-tree navigation=this.navigation}}
+              </div>
+            {{/if}}
+          {{/each}}
+        </div>
+      {{/if}}
+    {{/each}}
+  {{else if (or (eq @root.page.component.name "platform-software") (eq @root.page.component.name "ffh") (eq @root.page.component.name "semihost"))}}
+    {{!-- Show all platform-software components when viewing any of them --}}
+    {{!-- First, show the platform-software overview as a simple link --}}
+    {{#each site.components}}
+      {{#if (eq this.name "platform-software")}}
+        <div class="nav-trees" data-component="{{this.name}}">
+          <ul class="nav-list">
+            <li class="nav-item"><a class="nav-link" href="{{{relativize this.url}}}">Platform Software Overview</a></li>
+          </ul>
+        </div>
+      {{/if}}
+    {{/each}}
+    {{!-- Then show the spec components with their version selectors and nav trees --}}
+    {{#each site.components}}
+      {{#if (or (eq this.name "ffh") (eq this.name "semihost"))}}
+        <div class="nav-trees" data-component="{{this.name}}">
+          <div class="version-box">
+            <select data-component="{{this.name}}" class="select-version">
+              {{#each this.versions}}
+                <option
+                  value="{{#if this.url}}{{{relativize this.url}}}{{/if}}"
+                  data-version="{{this.version}}"
+                  {{#if (or this.missing (not this.url))}}disabled{{/if}}
+                  {{#if (eq this.version @root.page.version)}}selected{{/if}}>
+                  {{this.displayVersion}}{{#if (or this.missing (not this.url))}} (unavailable){{/if}}
+                </option>
+              {{/each}}
+            </select>
+          </div>
+          {{#each this.versions}}
+            {{#if this.navigation}}
+              <div data-component="{{../name}}" data-version="{{this.version}}" class="nav-version-group">
+                {{> nav-tree navigation=this.navigation}}
+              </div>
+            {{/if}}
+          {{/each}}
+        </div>
+      {{/if}}
+    {{/each}}
   {{else}}
     {{!-- Standard navigation for non-hardware components with version selector --}}
     <div class="version-box">
