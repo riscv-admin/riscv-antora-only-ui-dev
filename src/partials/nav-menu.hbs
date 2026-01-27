@@ -78,7 +78,7 @@
         </div>
       {{/if}}
     {{/each}}
-  {{else if (or (eq @root.page.component.name "platform-software") (eq @root.page.component.name "ffh") (eq @root.page.component.name "semihost"))}}
+  {{else if (or (eq @root.page.component.name "platform-software") (eq @root.page.component.name "ffh") (eq @root.page.component.name "semihost") (eq @root.page.component.name "brs") (eq @root.page.component.name "rimt"))}}
     {{!-- Show all platform-software components when viewing any of them --}}
     {{!-- First, show the platform-software overview as a simple link --}}
     {{#each site.components}}
@@ -92,7 +92,7 @@
     {{/each}}
     {{!-- Then show the spec components with their version selectors and nav trees --}}
     {{#each site.components}}
-      {{#if (or (eq this.name "ffh") (eq this.name "semihost"))}}
+      {{#if (or (eq this.name "ffh") (eq this.name "semihost") (eq this.name "brs") (eq this.name "rimt"))}}
         <div class="nav-trees" data-component="{{this.name}}">
           <div class="version-box">
             <select data-component="{{this.name}}" class="select-version">
