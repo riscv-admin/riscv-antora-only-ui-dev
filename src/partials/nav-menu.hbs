@@ -39,7 +39,7 @@
         </div>
       {{/if}}
     {{/each}}
-  {{else if (or (eq @root.page.component.name "debug-trace-ras") (eq @root.page.component.name "techtrace") (eq @root.page.component.name "qos") (eq @root.page.component.name "reri") (eq @root.page.component.name "etrace"))}}
+  {{else if (or (eq @root.page.component.name "debug-trace-ras") (eq @root.page.component.name "techtrace") (eq @root.page.component.name "qos") (eq @root.page.component.name "reri") (eq @root.page.component.name "etrace") (eq @root.page.component.name "ntrace") (eq @root.page.component.name "connectors") (eq @root.page.component.name "tci"))}}
     {{!-- Show all debug-trace-ras components when viewing any of them --}}
     {{!-- First, show the debug-trace-ras overview as a simple link --}}
     {{#each site.components}}
@@ -53,7 +53,7 @@
     {{/each}}
     {{!-- Then show the spec components with their version selectors and nav trees --}}
     {{#each site.components}}
-      {{#if (or (eq this.name "techtrace") (eq this.name "qos") (eq this.name "reri") (eq this.name "etrace"))}}
+      {{#if (or (eq this.name "techtrace") (eq this.name "qos") (eq this.name "reri") (eq this.name "etrace") (eq this.name "ntrace") (eq this.name "connectors") (eq this.name "tci"))}}
         <div class="nav-trees" data-component="{{this.name}}">
           <div class="version-box">
             <select data-component="{{this.name}}" class="select-version">
