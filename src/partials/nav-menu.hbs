@@ -1,20 +1,9 @@
 {{!-- Render hardware group with per-component nav + version switchers --}}
 {{#if page.navigation}}
-  {{#if (or (eq @root.page.component.name "hardware") (eq @root.page.component.name "aia") (eq @root.page.component.name "iommu") (eq @root.page.component.name "plic") (eq @root.page.component.name "soc"))}}
-    {{!-- Show all hardware components when viewing any of them --}}
-    {{!-- First, show the hardware overview as a simple link --}}
+  {{#if (isInGroup @root.page.component "profiles")}}
+    {{!-- Show all profiles components when viewing any of them --}}
     {{#each site.components}}
-      {{#if (eq this.name "hardware")}}
-        <div class="nav-trees" data-component="{{this.name}}">
-          <ul class="nav-list">
-            <li class="nav-item"><a class="nav-link" href="{{{relativize this.url}}}">Non-ISA Hardware Overview</a></li>
-          </ul>
-        </div>
-      {{/if}}
-    {{/each}}
-    {{!-- Then show the spec components with their version selectors and nav trees --}}
-    {{#each site.components}}
-      {{#if (or (eq this.name "aia") (eq this.name "iommu") (eq this.name "plic") (eq this.name "soc"))}}
+      {{#if (isInGroup this "profiles")}}
         <div class="nav-trees" data-component="{{this.name}}">
           <div class="version-box">
             <select data-component="{{this.name}}" class="select-version">
@@ -39,7 +28,35 @@
         </div>
       {{/if}}
     {{/each}}
-  {{else if (or (eq @root.page.component.name "debug-trace-ras") (eq @root.page.component.name "techtrace") (eq @root.page.component.name "qos") (eq @root.page.component.name "reri") (eq @root.page.component.name "etrace") (eq @root.page.component.name "ntrace") (eq @root.page.component.name "connectors") (eq @root.page.component.name "tci"))}}
+  {{else if (isInGroup @root.page.component "hardware")}}
+    {{!-- Show all hardware components when viewing any of them --}}
+    {{#each site.components}}
+      {{#if (isInGroup this "hardware")}}
+        <div class="nav-trees" data-component="{{this.name}}">
+          <div class="version-box">
+            <select data-component="{{this.name}}" class="select-version">
+              {{#each this.versions}}
+                <option
+                  value="{{#if this.url}}{{{relativize this.url}}}{{/if}}"
+                  data-version="{{this.version}}"
+                  {{#if (or this.missing (not this.url))}}disabled{{/if}}
+                  {{#if (eq this.version @root.page.version)}}selected{{/if}}>
+                  {{this.displayVersion}}{{#if (or this.missing (not this.url))}} (unavailable){{/if}}
+                </option>
+              {{/each}}
+            </select>
+          </div>
+          {{#each this.versions}}
+            {{#if this.navigation}}
+              <div data-component="{{../name}}" data-version="{{this.version}}" class="nav-version-group">
+                {{> nav-tree navigation=this.navigation}}
+              </div>
+            {{/if}}
+          {{/each}}
+        </div>
+      {{/if}}
+    {{/each}}
+  {{else if (isInGroup @root.page.component "debug-trace-ras")}}
     {{!-- Show all debug-trace-ras components when viewing any of them --}}
     {{!-- First, show the debug-trace-ras overview as a simple link --}}
     {{#each site.components}}
@@ -51,18 +68,7 @@
         </div>
       {{/if}}
     {{/each}}
-    {{!-- Then show the spec components with their version selectors and nav trees --}}
-    {{#each site.components}}
-      {{#if (or (eq this.name "techtrace") (eq this.name "qos") (eq this.name "reri") (eq this.name "etrace") (eq this.name "ntrace") (eq this.name "connectors") (eq this.name "tci"))}}
-        <div class="nav-trees" data-component="{{this.name}}">
-          <div class="version-box">
-            <select data-component="{{this.name}}" class="select-version">
-              {{#each this.versions}}
-                <option
-                  value="{{#if this.url}}{{{relativize this.url}}}{{/if}}"
-                  data-version="{{this.version}}"
-                  {{#if (or this.missing (not this.url))}}disabled{{/if}}
-                  {{#if (eq this.version @root.page.version)}}selected{{/if}}>
+    {{!-- Then show the spec components with their version selectors and na
                   {{this.displayVersion}}{{#if (or this.missing (not this.url))}} (unavailable){{/if}}
                 </option>
               {{/each}}
@@ -78,7 +84,7 @@
         </div>
       {{/if}}
     {{/each}}
-  {{else if (or (eq @root.page.component.name "platform-software") (eq @root.page.component.name "ffh") (eq @root.page.component.name "semihost") (eq @root.page.component.name "brs") (eq @root.page.component.name "rimt") (eq @root.page.component.name "sbi") (eq @root.page.component.name "rpmi") (eq @root.page.component.name "uefi"))}}
+  {{else if (isInGroup @root.page.component "platform-software")}}
     {{!-- Show all platform-software components when viewing any of them --}}
     {{!-- First, show the platform-software overview as a simple link --}}
     {{#each site.components}}
@@ -90,18 +96,7 @@
         </div>
       {{/if}}
     {{/each}}
-    {{!-- Then show the spec components with their version selectors and nav trees --}}
-    {{#each site.components}}
-      {{#if (or (eq this.name "ffh") (eq this.name "semihost") (eq this.name "brs") (eq this.name "rimt") (eq this.name "sbi") (eq this.name "rpmi") (eq this.name "uefi"))}}
-        <div class="nav-trees" data-component="{{this.name}}">
-          <div class="version-box">
-            <select data-component="{{this.name}}" class="select-version">
-              {{#each this.versions}}
-                <option
-                  value="{{#if this.url}}{{{relativize this.url}}}{{/if}}"
-                  data-version="{{this.version}}"
-                  {{#if (or this.missing (not this.url))}}disabled{{/if}}
-                  {{#if (eq this.version @root.page.version)}}selected{{/if}}>
+    {{!-- Then show the spec components with their version selectors and nav 
                   {{this.displayVersion}}{{#if (or this.missing (not this.url))}} (unavailable){{/if}}
                 </option>
               {{/each}}
@@ -117,8 +112,8 @@
         </div>
       {{/if}}
     {{/each}}
-  {{else if (or (eq @root.page.component.name "app-enablement") (eq @root.page.component.name "intrinsic") (eq @root.page.component.name "abi"))}}
-    {{!-- Show all app-enablement components when viewing any of them --}}
+  {{else if (isInGroup @root.page.component "application-software")}}
+    {{!-- Show all application-software components when viewing any of them --}}
     {{!-- First, show the app-enablement overview as a simple link --}}
     {{#each site.components}}
       {{#if (eq this.name "app-enablement")}}
@@ -131,7 +126,7 @@
     {{/each}}
     {{!-- Then show the spec components with their version selectors and nav trees --}}
     {{#each site.components}}
-      {{#if (or (eq this.name "intrinsic") (eq this.name "abi"))}}
+      {{#if (isInGroup this "application-software")}}
         <div class="nav-trees" data-component="{{this.name}}">
           <div class="version-box">
             <select data-component="{{this.name}}" class="select-version">
@@ -141,17 +136,6 @@
                   data-version="{{this.version}}"
                   {{#if (or this.missing (not this.url))}}disabled{{/if}}
                   {{#if (eq this.version @root.page.version)}}selected{{/if}}>
-                  {{this.displayVersion}}{{#if (or this.missing (not this.url))}} (unavailable){{/if}}
-                </option>
-              {{/each}}
-            </select>
-          </div>
-          {{#each this.versions}}
-            {{#if this.navigation}}
-              <div data-component="{{../name}}" data-version="{{this.version}}" class="nav-version-group">
-                {{> nav-tree navigation=this.navigation}}
-              </div>
-            {{/if}}
           {{/each}}
         </div>
       {{/if}}
