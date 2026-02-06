@@ -1,4 +1,4 @@
-{{!-- Render hardware group with per-component nav + version switchers --}}
+{{!-- Render grouped components with per-component nav + version switchers --}}
 {{#if page.navigation}}
   {{#if (isInGroup @root.page.component "profiles")}}
     {{!-- Show all profiles components when viewing any of them --}}
@@ -58,17 +58,17 @@
     {{/each}}
   {{else if (isInGroup @root.page.component "debug-trace-ras")}}
     {{!-- Show all debug-trace-ras components when viewing any of them --}}
-    {{!-- First, show the debug-trace-ras overview as a simple link --}}
     {{#each site.components}}
-      {{#if (eq this.name "debug-trace-ras")}}
+      {{#if (isInGroup this "debug-trace-ras")}}
         <div class="nav-trees" data-component="{{this.name}}">
-          <ul class="nav-list">
-            <li class="nav-item"><a class="nav-link" href="{{{relativize this.url}}}">Debug, Trace, RAS Overview</a></li>
-          </ul>
-        </div>
-      {{/if}}
-    {{/each}}
-    {{!-- Then show the spec components with their version selectors and na
+          <div class="version-box">
+            <select data-component="{{this.name}}" class="select-version">
+              {{#each this.versions}}
+                <option
+                  value="{{#if this.url}}{{{relativize this.url}}}{{/if}}"
+                  data-version="{{this.version}}"
+                  {{#if (or this.missing (not this.url))}}disabled{{/if}}
+                  {{#if (eq this.version @root.page.version)}}selected{{/if}}>
                   {{this.displayVersion}}{{#if (or this.missing (not this.url))}} (unavailable){{/if}}
                 </option>
               {{/each}}
@@ -86,17 +86,17 @@
     {{/each}}
   {{else if (isInGroup @root.page.component "platform-software")}}
     {{!-- Show all platform-software components when viewing any of them --}}
-    {{!-- First, show the platform-software overview as a simple link --}}
     {{#each site.components}}
-      {{#if (eq this.name "platform-software")}}
+      {{#if (isInGroup this "platform-software")}}
         <div class="nav-trees" data-component="{{this.name}}">
-          <ul class="nav-list">
-            <li class="nav-item"><a class="nav-link" href="{{{relativize this.url}}}">Platform Software Overview</a></li>
-          </ul>
-        </div>
-      {{/if}}
-    {{/each}}
-    {{!-- Then show the spec components with their version selectors and nav 
+          <div class="version-box">
+            <select data-component="{{this.name}}" class="select-version">
+              {{#each this.versions}}
+                <option
+                  value="{{#if this.url}}{{{relativize this.url}}}{{/if}}"
+                  data-version="{{this.version}}"
+                  {{#if (or this.missing (not this.url))}}disabled{{/if}}
+                  {{#if (eq this.version @root.page.version)}}selected{{/if}}>
                   {{this.displayVersion}}{{#if (or this.missing (not this.url))}} (unavailable){{/if}}
                 </option>
               {{/each}}
@@ -114,17 +114,6 @@
     {{/each}}
   {{else if (isInGroup @root.page.component "application-software")}}
     {{!-- Show all application-software components when viewing any of them --}}
-    {{!-- First, show the app-enablement overview as a simple link --}}
-    {{#each site.components}}
-      {{#if (eq this.name "app-enablement")}}
-        <div class="nav-trees" data-component="{{this.name}}">
-          <ul class="nav-list">
-            <li class="nav-item"><a class="nav-link" href="{{{relativize this.url}}}">App Enablement Overview</a></li>
-          </ul>
-        </div>
-      {{/if}}
-    {{/each}}
-    {{!-- Then show the spec components with their version selectors and nav trees --}}
     {{#each site.components}}
       {{#if (isInGroup this "application-software")}}
         <div class="nav-trees" data-component="{{this.name}}">
@@ -136,12 +125,23 @@
                   data-version="{{this.version}}"
                   {{#if (or this.missing (not this.url))}}disabled{{/if}}
                   {{#if (eq this.version @root.page.version)}}selected{{/if}}>
+                  {{this.displayVersion}}{{#if (or this.missing (not this.url))}} (unavailable){{/if}}
+                </option>
+              {{/each}}
+            </select>
+          </div>
+          {{#each this.versions}}
+            {{#if this.navigation}}
+              <div data-component="{{../name}}" data-version="{{this.version}}" class="nav-version-group">
+                {{> nav-tree navigation=this.navigation}}
+              </div>
+            {{/if}}
           {{/each}}
         </div>
       {{/if}}
     {{/each}}
   {{else}}
-    {{!-- Standard navigation for non-hardware components with version selector --}}
+    {{!-- Standard navigation for non-grouped components with version selector --}}
     <div class="version-box">
       <select data-component="{{page.component.name}}" class="select-version">
         {{#each page.component.versions}}
