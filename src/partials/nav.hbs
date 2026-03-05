@@ -3,6 +3,11 @@
     <div class="panels">
       <div class="nav-panel-menu is-active" data-panel="menu">
         <nav class="nav-menu">
+          <ul class="nav-list" style="padding-left: 0; margin: 0;">
+            <li class="nav-item" style="padding-left: 0;">
+              <a class="nav-link" href="{{siteRootPath}}/{{or site.keys.toc_home_link_path 'home/index.html'}}" style="font-weight: bold; font-size: 1.1em;">{{or site.keys.toc_home_link_label 'RISC-V Specifications'}}</a>
+            </li>
+          </ul>
 {{> nav-explore}}
 {{> nav-menu}}
           <div class="toggle-sm">
@@ -11,7 +16,7 @@
         </nav>
       </div>
       <div class="nav-collapse">
-        <button id="nav-collapse-toggle"><span></span></button>        
+        <button id="nav-collapse-toggle"><span></span></button>
       </div>
     </div>
     <div class="nav-resize"></div>

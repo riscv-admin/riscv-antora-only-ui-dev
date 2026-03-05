@@ -165,7 +165,8 @@
   --doc-font-size: inherit;
   --doc-font-size--desktop: calc(17 / var(--rem-base) * 1rem);
   --doc-line-height: 1.6;
-  --doc-margin: 0 auto;
+  /* --doc-margin: 0 auto; */
+  --doc-margin: 0 1rem;
   --doc-margin--desktop: 0 2rem;
   --heading-font-color: #003262;
   --heading-font-weight: 600;
@@ -218,8 +219,10 @@
   --toc-top: calc(var(--body-top));
   --toc-height: calc(100vh - var(--toc-top) - 2.5rem);
   --toc-width--widescreen: calc(216 / var(--rem-base) * 1rem);
-  --doc-max-width: calc(720 / var(--rem-base) * 1rem);
-  --doc-max-width--desktop: calc(1200 / var(--rem-base) * 1rem);
+  --doc-max-width: 100%
+  --doc-max-width--desktop: 100%;
+  /* --doc-max-width: calc(720 / var(--rem-base) * 1rem);
+  --doc-max-width--desktop: calc(1200 / var(--rem-base) * 1rem); */
 
   /* Stacking */
   --z-index-nav: 1;

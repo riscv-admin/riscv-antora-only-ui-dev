@@ -15,12 +15,12 @@
       <div class="navbar-end">
         <div class="navbar-item home">
           <a class="navbar-link"
-            href="https://riscv.atlassian.net/wiki/spaces/HOME/pages/16154769/RISC-V+Technical+Specifications"
-            aria-label="Library">
-            Library</a>
+            href="{{siteRootPath}}/home/index.html"
+            aria-label="Home">
+            Home</a>
         </div>
       </div>
-      <div class="navbar-item has-dropdown is-hoverable">
+      {{!-- <div class="navbar-item has-dropdown is-hoverable">
         <a class="navbar-link" href="#">ISA</a>
         <div class="navbar-dropdown">
           <a class="navbar-item" target="_blank" rel="noopener noreferrer"
@@ -210,7 +210,7 @@
              a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2v-5h-2v5z" />
             </svg></a>
         </div>
-      </div>
+      </div> --}}
       {{#if env.SITE_SEARCH_PROVIDER}}
       <div class="navbar-item search hide-for-print search-position" style="padding-left: 0;">
         <div id="search-field" class="field">
