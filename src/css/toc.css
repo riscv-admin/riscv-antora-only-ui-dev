@@ -248,3 +248,156 @@ and viewing their tags as tooltips.
 .tag-highlight-enabled .tag-toggle-switch::after {
     transform: translateX(20px);
 }
+
+/* ========== Merged from spring-toc.css ========== */
+
+body.toc-left #doc {
+  border-left: 1px solid var(--layout-border-color);
+  overflow: auto;
+  margin-left: var(--toc-width);
+}
+
+#toc {
+  display: var(--toc-display);
+  position: absolute;
+  top: var(--layout-banner-height);
+  width: var(--toc-width);
+  margin-left: calc(var(--toc-width) * -1);
+  border-right: 1px solid var(--layout-border-color);
+  padding: 1.7rem 1rem 0 1rem;
+  font-size: 0.95rem;
+  line-height: 1.1;
+}
+
+#toctitle {
+  display: none;
+}
+
+#toc ul,
+#toc ol {
+  padding: 0;
+}
+
+#toc ul ul,
+#toc ul ol {
+  padding-left: 0.8rem;
+}
+
+#toc li {
+  display: block;
+  list-style: none;
+}
+
+#toc a {
+  display: block;
+  text-decoration: none;
+  color: var(--toc-font-color);
+  padding: 0.4rem 0.6rem;
+  border-radius: 4px;
+}
+
+#toc a:hover {
+  background-color: var(--toc-hover-background-color);
+}
+
+body.fixed-toc #toc {
+  position: fixed;
+  top: 0;
+  overflow-x: hidden;
+  height: 100%;
+}
+
+#toc li.active > a {
+  background-color: var(--toc-active-background-color);
+  color: var(--toc-active-font-color);
+}
+
+#toc > ul ul,
+#toc > ol ol {
+  display: none;
+}
+
+#toc li.active > ul,
+#toc li.active > ol,
+#toc ul.expanded,
+#toc ol.expanded {
+  display: block;
+}
+
+#back-to-index {
+  display: block;
+  margin-bottom: 0.6rem;
+}
+
+#back-to-index a {
+  padding-left: 1.6rem;
+  margin-bottom: 0.6rem;
+  margin-top: -0.9rem;
+}
+
+#back-to-index a::before {
+  content: "";
+  filter: var(--toc-back-to-index-filter);
+  background: no-repeat center / 16px 16px;
+  background-image: url("../img/octicons-16.svg#view-chevron-left");
+  display: block;
+  position: absolute;
+  min-width: 16px;
+  min-height: 16px;
+  left: 1.4rem;
+}
+
+#tocbar-container {
+  display: var(--toc-bar-display);
+  width: 100%;
+  height: var(--tocbar-height);
+  background-color: var(--body-background-color);
+  border-bottom: 1px solid var(--panel-border-color);
+  z-index: 10000;
+}
+
+#tocbar {
+  width: 100%;
+  height: 100%;
+  padding-left: 6px;
+}
+
+body.fixed-toc #tocbar-container {
+  position: fixed;
+  top: 0;
+}
+
+button#toggle-toc {
+  width: var(--toc-bar-height);
+  height: var(--toc-bar-height);
+  filter: var(--toc-bar-button-filter);
+  background: no-repeat center / 16px 16px;
+  background-image: url("../img/octicons-16.svg#view-three-bars");
+  border: none;
+  outline: none;
+  padding: 0;
+  display: block;
+}
+
+body.show-toc button#toggle-toc {
+  background-image: url("../img/octicons-16.svg#view-x");
+}
+
+@media screen and (max-width: 800px) {
+  body.fixed-toc #toc {
+    top: var(--toc-bar-height);
+  }
+
+  #toc {
+    top: calc(var(--layout-banner-height) + var(--toc-bar-height));
+    width: 100%;
+    height: 100%;
+    left: 0;
+    background-color: var(--body-background-color);
+    z-index: 10000;
+  }
+
+  body.show-toc #toc {
+    display: block;
+  }
+}
