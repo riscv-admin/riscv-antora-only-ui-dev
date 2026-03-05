@@ -4,7 +4,12 @@ footer.footer {
   font-size: calc(15 / var(--rem-base) * 1rem);
   line-height: var(--footer-line-height);
   padding: 1.5rem;
-  border-top: 1px solid var(--color-accent-1);
+  border-top: 16px solid #fdb515;
+  display: flex;
+  flex-direction: column;
+  gap: 1.5rem;
+  align-items: center;
+  text-align: center;
 }
 
 .footer p {
@@ -22,4 +27,93 @@ footer.footer {
 
 .footer .has-gray-text {
   color: #b5b5b5;
+}
+
+/* Footer Buttons */
+.footer-buttons {
+  display: flex;
+  gap: 1rem;
+  justify-content: center;
+  flex-wrap: wrap;
+}
+
+.footer-btn {
+  background-color: #003262;
+  color: #fdb515;
+  padding: 0.3rem 0.8rem;
+  border: 2px solid #fdb515;
+  border-radius: 2rem;
+  text-decoration: none;
+  font-weight: 600;
+  font-size: calc(10 / var(--rem-base) * 1rem);
+  transition: opacity 0.3s ease, background-color 0.3s ease;
+  display: inline-block;
+  cursor: pointer;
+}
+
+.footer-btn:hover {
+  background-color: #fdb515;
+  color: #003262;
+}
+
+/* Dark mode button styles */
+html.dark-theme .footer-btn {
+  background-color: #000;
+}
+
+html.dark-theme .footer-btn:hover {
+  background-color: #fdb515;
+  color: #000;
+}
+
+/* Social Icons */
+#social-icons {
+  display: flex;
+  gap: 1rem;
+  align-items: center;
+  justify-content: center;
+}
+
+#social-icons svg {
+  width: 32px;
+  height: 32px;
+  transition: opacity 0.3s ease;
+  border-radius: 50%;
+  border: 2px solid #fdb515;
+  box-sizing: content-box;
+}
+
+#social-icons a:hover svg {
+  opacity: 0.7;
+}
+
+#social-icons a.slack-icon-link {
+  width: 32px;
+  height: 32px;
+  flex: 0 0 32px;
+  aspect-ratio: 1 / 1;
+  padding: 0;
+  line-height: 1;
+  border-radius: 9999px;
+  border: 2px solid #fdb515;
+  box-sizing: border-box;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  background-color: var(--social-icon-circle);
+  color: var(--social-icon-color);
+  font-size: 18px;
+  transition: opacity 0.3s ease;
+}
+
+#social-icons a.slack-icon-link:hover {
+  opacity: 0.7;
+}
+
+#social-icons .cls-1 {
+  fill: var(--social-icon-circle);
+}
+
+#social-icons .cls-2 {
+  fill: var(--social-icon-color);
 }

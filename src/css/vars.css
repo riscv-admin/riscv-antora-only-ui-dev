@@ -202,9 +202,9 @@
 
   /* Footer */
   --footer-line-height: var(--doc-line-height);
-  --footer-background: var(--body-background-color);
-  --footer-font-color: var(--color-gray-30);
-  --footer-link-font-color: #0094FF;
+  --footer-background: #003262;
+  --footer-font-color: #fdb515;
+  --footer-link-font-color: #fdb515;
 
   /* Dimensions and Positioning */
   --navbar-height: calc(83 / var(--rem-base) * 1rem);
@@ -337,8 +337,8 @@ html.dark-theme {
 
   /* Footer */
   --footer-background: var(--body-background-color);
-  --footer-font-color: rgba(255, 255, 255, 0.5);
-  --footer-link-font-color: rgba(255, 255, 255, 0.5);
+  --footer-font-color: #fff;
+  --footer-link-font-color: #fff;
 }
 
 html.dark-theme .home-link {

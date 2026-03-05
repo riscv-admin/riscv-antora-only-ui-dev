@@ -149,3 +149,10 @@ body.status-404 a {
     top: 90px;
   }
 }
+
+/* Home icon styling */
+.navbar-item.home .home-icon {
+  width: 24px;
+  height: 24px;
+  vertical-align: middle;
+}
