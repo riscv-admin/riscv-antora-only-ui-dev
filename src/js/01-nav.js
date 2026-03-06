@@ -7,7 +7,22 @@
   var navContainer = document.querySelector('.nav-container')
   var navToggle1 = document.querySelector('#nav-toggle-1')
   var navToggle2 = document.querySelector('#nav-toggle-2')
-  var isNavOpen = window.localStorage && window.localStorage.getItem('sidebar') === 'open'
+  
+  // Detect home page: check data attribute first, then check URL
+  var isHomePage = (navContainer && navContainer.getAttribute('data-is-home') === 'true') ||
+                   (navContainer && navContainer.getAttribute('data-component') === 'home') ||
+                   window.location.pathname.includes('/home/') ||
+                   window.location.pathname === '/'
+  
+  var sidebarPref = window.localStorage && window.localStorage.getItem('sidebar')
+  var isNavOpen = isHomePage ? false : (sidebarPref === 'open' || sidebarPref !== 'close')
+
+  // Always start collapsed on home page
+  if (isHomePage) {
+    document.body.classList.add('nav-sm')
+    isNavOpen = false
+  }
+  
   if (navToggle1) {
     navToggle1.addEventListener('click', showNav)
   }
@@ -37,6 +52,25 @@
       currentActivePageItem.querySelector('.nav-item-toggle').click()
       e.preventDefault()
       return false
+    })
+  }
+
+  // Auto-expand nav when navigating away from home page
+  if (isHomePage) {
+    find(menuPanel, '.nav-link').forEach(function (link) {
+      link.addEventListener('click', function (e) {
+        var href = this.getAttribute('href')
+        // Only expand if clicking a link that navigates away from home
+        if (href && !href.includes('home')) {
+          if (document.body.classList.contains('nav-sm')) {
+            document.body.classList.remove('nav-sm')
+            if (window.localStorage) {
+              window.localStorage.setItem('sidebar', 'open')
+            }
+            isNavOpen = true
+          }
+        }
+      })
     })
   }
 
