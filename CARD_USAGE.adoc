@@ -1,0 +1,304 @@
+= Card Component Usage Guide
+:page-layout: default
+
+== How to Use Cards in AsciiDoc
+
+You can create cards in your AsciiDoc documents using HTML passthrough blocks.
+
+== Single Card Example
+
+[source,asciidoc]
+----
+++++
+<div class="card shadow-tl">
+  <div class="card-header">
+    <h3>Volume II</h3>
+  </div>
+  <div class="card-body">
+    Privileged Architecture
+  </div>
+  <div class="card-footer">
+    <a href="priv/priv-intro.html" class="button button--secondary">Version: May 2024</a>
+  </div>
+</div>
+++++
+----
+
+== Live Example - Single Card
+
+++++
+<div class="card shadow-tl" style="max-width: 300px;">
+  <div class="card-header">
+    <h3>Volume II</h3>
+  </div>
+  <div class="card-body">
+    Privileged Architecture
+  </div>
+  <div class="card-footer">
+    <a href="#" class="button button--secondary">Version: May 2024</a>
+  </div>
+</div>
+++++
+
+== Card Grid Example (3 columns)
+
+[source,asciidoc]
+----
+++++
+<div class="card-grid card-grid-3">
+  <div class="card shadow-tl">
+    <div class="card-header">
+      <h3>Volume I</h3>
+    </div>
+    <div class="card-body">
+      Unprivileged Architecture
+    </div>
+    <div class="card-footer">
+      <a href="unpriv/unpriv-intro.html" class="button button--secondary">Version: May 2024</a>
+    </div>
+  </div>
+
+  <div class="card shadow-tl">
+    <div class="card-header">
+      <h3>Volume II</h3>
+    </div>
+    <div class="card-body">
+      Privileged Architecture
+    </div>
+    <div class="card-footer">
+      <a href="priv/priv-intro.html" class="button button--secondary">Version: May 2024</a>
+    </div>
+  </div>
+
+  <div class="card shadow-tl">
+    <div class="card-header">
+      <h3>Extensions</h3>
+    </div>
+    <div class="card-body">
+      Standard Extensions
+    </div>
+    <div class="card-footer">
+      <a href="extensions/index.html" class="button button--primary">Explore</a>
+    </div>
+  </div>
+</div>
+++++
+----
+
+== Live Example - Card Grid
+
+++++
+<div class="card-grid card-grid-3">
+  <div class="card shadow-tl">
+    <div class="card-header">
+      <h3>Volume I</h3>
+    </div>
+    <div class="card-body">
+      Unprivileged Architecture
+    </div>
+    <div class="card-footer">
+      <a href="#" class="button button--secondary">Version: May 2024</a>
+    </div>
+  </div>
+
+  <div class="card shadow-tl">
+    <div class="card-header">
+      <h3>Volume II</h3>
+    </div>
+    <div class="card-body">
+      Privileged Architecture
+    </div>
+    <div class="card-footer">
+      <a href="#" class="button button--secondary">Version: May 2024</a>
+    </div>
+  </div>
+
+  <div class="card shadow-tl">
+    <div class="card-header">
+      <h3>Extensions</h3>
+    </div>
+    <div class="card-body">
+      Standard Extensions
+    </div>
+    <div class="card-footer">
+      <a href="#" class="button button--primary">Explore</a>
+    </div>
+  </div>
+</div>
+++++
+
+== Horizontal Card Row Example
+
+[source,asciidoc]
+----
+++++
+<div class="card-row">
+  <div class="card shadow-tl">
+    <div class="card-header">
+      <h3>Volume I</h3>
+    </div>
+    <div class="card-body">
+      Unprivileged Architecture
+    </div>
+    <div class="card-footer">
+      <a href="unpriv/unpriv-intro.html" class="button button--secondary">Version: May 2024</a>
+    </div>
+  </div>
+
+  <div class="card shadow-tl">
+    <div class="card-header">
+      <h3>Volume II</h3>
+    </div>
+    <div class="card-body">
+      Privileged Architecture
+    </div>
+    <div class="card-footer">
+      <a href="priv/priv-intro.html" class="button button--secondary">Version: May 2024</a>
+    </div>
+  </div>
+
+  <div class="card shadow-tl">
+    <div class="card-header">
+      <h3>Extensions</h3>
+    </div>
+    <div class="card-body">
+      Standard Extensions
+    </div>
+    <div class="card-footer">
+      <a href="extensions/index.html" class="button button--primary">Explore</a>
+    </div>
+  </div>
+</div>
+++++
+----
+
+== Live Example - Horizontal Card Row
+
+++++
+<div class="card-row">
+  <div class="card shadow-tl">
+    <div class="card-header">
+      <h3>Volume I</h3>
+    </div>
+    <div class="card-body">
+      Unprivileged Architecture
+    </div>
+    <div class="card-footer">
+      <a href="#" class="button button--secondary">Version: May 2024</a>
+    </div>
+  </div>
+
+  <div class="card shadow-tl">
+    <div class="card-header">
+      <h3>Volume II</h3>
+    </div>
+    <div class="card-body">
+      Privileged Architecture
+    </div>
+    <div class="card-footer">
+      <a href="#" class="button button--secondary">Version: May 2024</a>
+    </div>
+  </div>
+
+  <div class="card shadow-tl">
+    <div class="card-header">
+      <h3>Extensions</h3>
+    </div>
+    <div class="card-body">
+      Standard Extensions
+    </div>
+    <div class="card-footer">
+      <a href="#" class="button button--primary">Explore</a>
+    </div>
+  </div>
+</div>
+++++
+
+== Centered Horizontal Card Row Example
+
+[source,asciidoc]
+----
+++++
+<div class="card-row card-row--center">
+  <div class="card shadow-tl">
+    <div class="card-header">
+      <h3>Volume I</h3>
+    </div>
+    <div class="card-body">
+      Unprivileged Architecture
+    </div>
+    <div class="card-footer">
+      <a href="unpriv/unpriv-intro.html" class="button button--secondary">Version: May 2024</a>
+    </div>
+  </div>
+
+  <div class="card shadow-tl">
+    <div class="card-header">
+      <h3>Volume II</h3>
+    </div>
+    <div class="card-body">
+      Privileged Architecture
+    </div>
+    <div class="card-footer">
+      <a href="priv/priv-intro.html" class="button button--secondary">Version: May 2024</a>
+    </div>
+  </div>
+</div>
+++++
+----
+
+== Shadow Options
+
+Available shadow classes:
+
+* `shadow-sm` - Small shadow
+* `shadow-md` - Medium shadow
+* `shadow-lg` - Large shadow
+* `shadow-tl` - Extra large shadow (like Docusaurus 'tl')
+
+== Button Styles
+
+Available button classes:
+
+* `button button--primary` - Primary blue button
+* `button button--secondary` - Secondary accent color button
+
+== Grid Layouts
+
+Available grid classes:
+
+* `card-grid` - Auto-fit grid (default min 250px)
+* `card-grid-2` - 2 column grid (min 300px)
+* `card-grid-3` - 3 column grid (min 250px)
+* `card-grid-4` - 4 column grid (min 220px)
+* `card-row` - Horizontal row of fixed-width cards with horizontal scroll if needed
+* `card-row--center` - Center a horizontal card row when there are fewer cards
+
+All grids are responsive and collapse to single column on mobile.
+
+== Card Size Modifiers
+
+Use these classes on each card to make boxes smaller:
+
+* `card--sm` - Small card (260px)
+* `card--xs` - Extra small card (220px)
+
+Example:
+
+[source,asciidoc]
+----
+++++
+<div class="card-row card-row--center">
+  <div class="card card--sm shadow-tl">...</div>
+  <div class="card card--sm shadow-tl">...</div>
+</div>
+++++
+----
+
+== Tips
+
+. Use `++++` blocks to include raw HTML in AsciiDoc
+. Cards automatically adjust for dark/light themes
+. Cards have hover effects (slight lift and enhanced shadow)
+. Buttons are full-width within card footers
+. Grid layouts automatically adjust to available space

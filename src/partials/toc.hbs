@@ -7,7 +7,7 @@
         onclick="document.documentElement.classList.toggle('tag-highlight-enabled');"
       >
         <div class="tag-toggle-switch"></div>
-        <span id="tag-toggle-label">Highlight Tags</span>
+        <span id="tag-toggle-label">Normative Rules</span>
       </button>
     </div>
     <div
@@ -64,6 +64,7 @@
       {{#if page.attributes.multiple_pdfs}}
         <div class="dropdown-toc">
           <a id="pdfDropdownButton" aria-haspopup="true" aria-expanded="false" class="sidebar-link" download>
+            <i class="fa fa-file-pdf-o" aria-hidden="true"></i>
             <span>Download PDFs</span>
             <svg class="chevron" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
               <polyline points="6 9 12 15 18 9"></polyline>
@@ -113,11 +114,8 @@
       {{else}}
         {{#if page.attributes.pdf_url}}
           <a href="{{page.attributes.pdf_url}}" target="_blank" rel="noopener noreferrer" title="PDF" class="sidebar-link" download>
+            <i class="fa fa-file-pdf-o" aria-hidden="true"></i>
             <span>Download PDF</span>
-            <svg width="20" height="20" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" viewBox="0 0 24 24" aria-hidden="true" focusable="false">
-              <path d="M10 14a5 5 0 0 1 7.07 0l3.54 3.54a5 5 0 0 1-7.07 7.07l-3.54-3.54a5 5 0 0 1 0-7.07z"/>
-              <line x1="8" y1="8" x2="16" y2="16"/>
-            </svg>
           </a>
         {{/if}}
       {{/if}}
