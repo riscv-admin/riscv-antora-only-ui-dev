@@ -49,6 +49,16 @@
         </a>
       {{/if}}
 
+      {{#if (eq page.module "unpriv")}}
+        <a href="{{page.attributes.wiki_url_unpriv}}" target="_blank" rel="noopener noreferrer" class="sidebar-link">
+          More Details
+        </a>
+      {{else if (eq page.module "priv")}}
+        <a href="{{page.attributes.wiki_url_priv}}" target="_blank" rel="noopener noreferrer" class="sidebar-link">
+          More Details
+        </a>
+      {{/if}}
+
       {{#if page.attributes.multiple_pdfs}}
         <div class="dropdown-toc">
           <a id="pdfDropdownButton" aria-haspopup="true" aria-expanded="false" class="sidebar-link" download>
