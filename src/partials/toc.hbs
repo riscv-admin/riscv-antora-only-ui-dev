@@ -64,12 +64,14 @@
       {{#if (eq page.module "unpriv")}}
         {{#if page.attributes.pdf_url_unpriv}}
           <a href="{{page.attributes.pdf_url_unpriv}}" target="_blank" rel="noopener noreferrer" class="sidebar-link" download>
+            <i class="fa fa-file-pdf-o" aria-hidden="true"></i>
             <span>Download PDF</span>
           </a>
         {{/if}}
       {{else if (eq page.module "priv")}}
         {{#if page.attributes.pdf_url_priv}}
           <a href="{{page.attributes.pdf_url_priv}}" target="_blank" rel="noopener noreferrer" class="sidebar-link" download>
+            <i class="fa fa-file-pdf-o" aria-hidden="true"></i>
             <span>Download PDF</span>
           </a>
         {{/if}}
