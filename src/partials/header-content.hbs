@@ -15,12 +15,16 @@
       <div class="navbar-end">
         <div class="navbar-item home">
           <a class="navbar-link"
-            href="https://riscv.atlassian.net/wiki/spaces/HOME/pages/16154769/RISC-V+Technical+Specifications"
-            aria-label="Library">
-            Library</a>
+            href="{{siteRootPath}}/home/index.html"
+            aria-label="home"
+            title="home">
+            <svg class="home-icon" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+              <path d="M3 9l9-7 9 7v11a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2z"></path>
+              <polyline points="9 22 9 12 15 12 15 22"></polyline>
+            </svg></a>
         </div>
       </div>
-      <div class="navbar-item has-dropdown is-hoverable">
+      {{!-- <div class="navbar-item has-dropdown is-hoverable">
         <a class="navbar-link" href="#">ISA</a>
         <div class="navbar-dropdown">
           <a class="navbar-item" target="_blank" rel="noopener noreferrer"
@@ -96,7 +100,7 @@
           <a class="navbar-item" target="_blank" rel="noopener noreferrer"
             href="https://riscv.atlassian.net/wiki/spaces/HOME/pages/809926657/Efficient+Trace+for+RISC-V">Efficient
             Trace
-            < <svg class="nav-external-icon" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 16 16">
+            <svg class="nav-external-icon" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 16 16">
               <path d="M10 1h5v5h-2V3.41l-6.29 6.3-1.42-1.42L11.59 2H10V1zM14 14H2V2h5V0H2a2 2 0 0 0-2 2v12
              a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2v-5h-2v5z" />
               </svg>
@@ -209,7 +213,7 @@
               <path d="M10 1h5v5h-2V3.41l-6.29 6.3-1.42-1.42L11.59 2H10V1zM14 14H2V2h5V0H2a2 2 0 0 0-2 2v12
              a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2v-5h-2v5z" />
             </svg></a>
-        </div>
+        </div> --}}
       </div>
       {{#if env.SITE_SEARCH_PROVIDER}}
       <div class="navbar-item search hide-for-print search-position" style="padding-left: 0;">
