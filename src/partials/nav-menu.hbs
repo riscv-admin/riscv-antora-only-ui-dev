@@ -1,9 +1,9 @@
 {{!-- Render grouped components with per-component nav + version switchers --}}
 {{#if page.navigation}}
-  {{#if (isInGroup @root.page.component "profiles")}}
-    {{!-- Show all profiles components when viewing any of them --}}
+  {{#if (isInGroup @root.page.component "isa")}}
+    {{!-- Show all ISA-group components when viewing any of them --}}
     {{#each site.components}}
-      {{#if (isInGroup this "profiles")}}
+      {{#if (isInGroup this "isa")}}
         <div class="nav-trees" data-component="{{this.name}}">
           <div class="version-box">
             <select data-component="{{this.name}}" class="select-version">
@@ -12,14 +12,14 @@
                   value="{{#if this.url}}{{{relativize this.url}}}{{/if}}"
                   data-version="{{this.version}}"
                   {{#if (or this.missing (not this.url))}}disabled{{/if}}
-                  {{#if (eq this.version @root.page.version)}}selected{{/if}}>
+                  {{#if (or (and (eq ../name @root.page.component.name) (eq this.version @root.page.version)) (and (not (eq ../name @root.page.component.name)) (not this.missing) this.url (or this.latest @first)))}}selected{{/if}}>
                   {{this.displayVersion}}{{#if (or this.missing (not this.url))}} (unavailable){{/if}}
                 </option>
               {{/each}}
             </select>
           </div>
           {{#each this.versions}}
-            {{#if this.navigation}}
+            {{#if (and this.navigation (or (and (eq ../name @root.page.component.name) (eq this.version @root.page.version)) (and (not (eq ../name @root.page.component.name)) (not this.missing) this.url (or this.latest @first))))}}
               <div data-component="{{../name}}" data-version="{{this.version}}" class="nav-version-group">
                 {{> nav-tree navigation=this.navigation}}
               </div>
@@ -40,14 +40,14 @@
                   value="{{#if this.url}}{{{relativize this.url}}}{{/if}}"
                   data-version="{{this.version}}"
                   {{#if (or this.missing (not this.url))}}disabled{{/if}}
-                  {{#if (eq this.version @root.page.version)}}selected{{/if}}>
+                  {{#if (or (and (eq ../name @root.page.component.name) (eq this.version @root.page.version)) (and (not (eq ../name @root.page.component.name)) (not this.missing) this.url (or this.latest @first)))}}selected{{/if}}>
                   {{this.displayVersion}}{{#if (or this.missing (not this.url))}} (unavailable){{/if}}
                 </option>
               {{/each}}
             </select>
           </div>
           {{#each this.versions}}
-            {{#if this.navigation}}
+            {{#if (and this.navigation (or (and (eq ../name @root.page.component.name) (eq this.version @root.page.version)) (and (not (eq ../name @root.page.component.name)) (not this.missing) this.url (or this.latest @first))))}}
               <div data-component="{{../name}}" data-version="{{this.version}}" class="nav-version-group">
                 {{> nav-tree navigation=this.navigation}}
               </div>
@@ -68,14 +68,14 @@
                   value="{{#if this.url}}{{{relativize this.url}}}{{/if}}"
                   data-version="{{this.version}}"
                   {{#if (or this.missing (not this.url))}}disabled{{/if}}
-                  {{#if (eq this.version @root.page.version)}}selected{{/if}}>
+                  {{#if (or (and (eq ../name @root.page.component.name) (eq this.version @root.page.version)) (and (not (eq ../name @root.page.component.name)) (not this.missing) this.url (or this.latest @first)))}}selected{{/if}}>
                   {{this.displayVersion}}{{#if (or this.missing (not this.url))}} (unavailable){{/if}}
                 </option>
               {{/each}}
             </select>
           </div>
           {{#each this.versions}}
-            {{#if this.navigation}}
+            {{#if (and this.navigation (or (and (eq ../name @root.page.component.name) (eq this.version @root.page.version)) (and (not (eq ../name @root.page.component.name)) (not this.missing) this.url (or this.latest @first))))}}
               <div data-component="{{../name}}" data-version="{{this.version}}" class="nav-version-group">
                 {{> nav-tree navigation=this.navigation}}
               </div>
@@ -96,14 +96,14 @@
                   value="{{#if this.url}}{{{relativize this.url}}}{{/if}}"
                   data-version="{{this.version}}"
                   {{#if (or this.missing (not this.url))}}disabled{{/if}}
-                  {{#if (eq this.version @root.page.version)}}selected{{/if}}>
+                  {{#if (or (and (eq ../name @root.page.component.name) (eq this.version @root.page.version)) (and (not (eq ../name @root.page.component.name)) (not this.missing) this.url (or this.latest @first)))}}selected{{/if}}>
                   {{this.displayVersion}}{{#if (or this.missing (not this.url))}} (unavailable){{/if}}
                 </option>
               {{/each}}
             </select>
           </div>
           {{#each this.versions}}
-            {{#if this.navigation}}
+            {{#if (and this.navigation (or (and (eq ../name @root.page.component.name) (eq this.version @root.page.version)) (and (not (eq ../name @root.page.component.name)) (not this.missing) this.url (or this.latest @first))))}}
               <div data-component="{{../name}}" data-version="{{this.version}}" class="nav-version-group">
                 {{> nav-tree navigation=this.navigation}}
               </div>
@@ -124,14 +124,14 @@
                   value="{{#if this.url}}{{{relativize this.url}}}{{/if}}"
                   data-version="{{this.version}}"
                   {{#if (or this.missing (not this.url))}}disabled{{/if}}
-                  {{#if (eq this.version @root.page.version)}}selected{{/if}}>
+                  {{#if (or (and (eq ../name @root.page.component.name) (eq this.version @root.page.version)) (and (not (eq ../name @root.page.component.name)) (not this.missing) this.url (or this.latest @first)))}}selected{{/if}}>
                   {{this.displayVersion}}{{#if (or this.missing (not this.url))}} (unavailable){{/if}}
                 </option>
               {{/each}}
             </select>
           </div>
           {{#each this.versions}}
-            {{#if this.navigation}}
+            {{#if (and this.navigation (or (and (eq ../name @root.page.component.name) (eq this.version @root.page.version)) (and (not (eq ../name @root.page.component.name)) (not this.missing) this.url (or this.latest @first))))}}
               <div data-component="{{../name}}" data-version="{{this.version}}" class="nav-version-group">
                 {{> nav-tree navigation=this.navigation}}
               </div>
