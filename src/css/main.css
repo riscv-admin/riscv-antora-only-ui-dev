@@ -113,12 +113,13 @@ footer #spring-links a:hover {
 }
 
 .sidebar-links a {
-  display: block;
-  position: relative;
-  height: 30px;
-  line-height: 30px;
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  min-height: 30px;
+  line-height: 1.2;
   font-size: 14px;
-  padding-left: 32px;
+  padding-left: 0;
   color: var(--body-font-dark-color);
   margin: 8px 0;
   cursor: pointer;
@@ -134,11 +135,23 @@ footer #spring-links a:hover {
 }
 
 .sidebar-links a svg {
-  position: absolute;
-  top: 3px;
-  left: 0;
-  width: 24px;
-  height: 24px;
+  position: static;
+  width: 20px;
+  height: 20px;
+  flex: 0 0 20px;
+}
+
+.sidebar-links a i.fa {
+  width: 20px;
+  height: 20px;
+  flex: 0 0 20px;
+  font-size: 20px;
+  line-height: 20px;
+  text-align: center;
+}
+
+.sidebar-links a .chevron {
+  margin-left: auto;
 }
 
 html.dark-theme .sidebar-links a svg {

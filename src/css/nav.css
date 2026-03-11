@@ -18,6 +18,9 @@
   float: right;
   display: inline-block;
   margin-top: 0.3rem;
+  position: relative;
+  z-index: 200;
+  right: -0.75rem;
 }
 
 .version-box span {
@@ -49,6 +52,8 @@
   border-radius: 0.5rem;
   -moz-appearance: none;
   background-color: var(--nav-background, #fff);
+  position: relative;
+  z-index: 201;
 }
 
 .select-version::-ms-expand {
@@ -251,11 +256,12 @@ html.dark-theme .riscvlogo--dark {
 
 .nav-link,
 .nav-text {
-  display: block;
+  display: inline-block;
   padding: 0.4rem 0.5rem;
   border-radius: 3px;
   padding-left: 12px;
   margin-left: 10px;
+  max-width: 100%;
 }
 
 .nav-item-toggle + .nav-link,
@@ -325,6 +331,17 @@ html.dark-theme .riscvlogo--dark {
   white-space: nowrap;
   overflow: hidden;
   text-overflow: ellipsis;
+}
+
+.nav-menu > .version-box ~ .nav-list > .nav-item:first-child > .nav-link,
+.nav-menu > .version-box ~ .nav-list > .nav-item:first-child > .nav-text,
+.nav-menu > .nav-trees > .version-box ~ .nav-version-group > .nav-list > .nav-item:first-child > .nav-link,
+.nav-menu > .nav-trees > .version-box ~ .nav-version-group > .nav-list > .nav-item:first-child > .nav-text {
+  display: flow-root;
+  min-height: 2.25rem;
+  white-space: normal;
+  overflow-wrap: anywhere;
+  padding-right: 0.25rem;
 }
 
 button.browse-version {
