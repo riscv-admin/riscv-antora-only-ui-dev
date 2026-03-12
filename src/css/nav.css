@@ -187,7 +187,7 @@ html.is-clipped--nav {
   margin: 0;
 }
 
-.nav-item:not(.is-active) > .nav-list {
+.nav-item:not(.is-active) > .nav-item-toggle ~ .nav-list {
   display: none;
 }
 
