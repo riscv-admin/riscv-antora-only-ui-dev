@@ -249,6 +249,12 @@ body {
     color: var(--navbar-font-color);
   }
 
+  html:not(.dark-theme) .navbar-end>a.navbar-item:hover,
+  html:not(.dark-theme) .navbar-end .navbar-link:hover,
+  html:not(.dark-theme) .navbar-end .navbar-item.has-dropdown:hover .navbar-link {
+    color: var(--link_hover-font-color);
+  }
+
   .navbar-end .navbar-link::after {
     border-color: currentColor;
   }

@@ -272,6 +272,7 @@ Available grid classes:
 * `card-grid-3` - 3 column grid (min 250px)
 * `card-grid-4` - 4 column grid (min 220px)
 * `card-row` - Horizontal row of fixed-width cards with horizontal scroll if needed
+* `card-row--tight` - Reduce horizontal gap between cards (useful for dense 3-card rows)
 * `card-row--center` - Center a horizontal card row when there are fewer cards
 
 All grids are responsive and collapse to single column on mobile.
@@ -282,6 +283,7 @@ Use these classes on each card to make boxes smaller:
 
 * `card--sm` - Small card (260px)
 * `card--xs` - Extra small card (220px)
+* `card--xxs` - Ultra compact card (180px desktop, 200px mobile)
 
 Example:
 
@@ -291,6 +293,19 @@ Example:
 <div class="card-row card-row--center">
   <div class="card card--sm shadow-tl">...</div>
   <div class="card card--sm shadow-tl">...</div>
+</div>
+++++
+----
+
+For a dense 3-card row:
+
+[source,asciidoc]
+----
+++++
+<div class="card-row card-row--tight card-row--center">
+  <div class="card card--xxs shadow-tl">...</div>
+  <div class="card card--xxs shadow-tl">...</div>
+  <div class="card card--xxs shadow-tl">...</div>
 </div>
 ++++
 ----
