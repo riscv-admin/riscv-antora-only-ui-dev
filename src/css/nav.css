@@ -153,6 +153,13 @@ html.is-clipped--nav {
   margin: 0 0 0 0.5rem;
 }
 
+/* Keep wrapper parents for profile components, but align their root rows with ISA peers. */
+.nav-trees[data-component="rvprofile"] .nav-version-group > .nav-list > .nav-item > .nav-list,
+.nav-trees[data-component="rva23"] .nav-version-group > .nav-list > .nav-item > .nav-list,
+.nav-trees[data-component="rvb23"] .nav-version-group > .nav-list > .nav-item > .nav-list {
+  margin-left: 0;
+}
+
 .nav-list a.link-external::after {
   content: url(../img/link-external.svg);
   width: 14px;
@@ -272,7 +279,7 @@ html.dark-theme .riscvlogo--dark {
 
 .nav-item-toggle:hover + .nav-link,
 .nav-item-toggle:hover + .nav-text {
-  background: #ebf2f2;
+  background: rgba(0, 50, 98, 0.06);
 }
 
 .nav-item.is-current-page > .nav-item-toggle:hover + .nav-link {
@@ -280,13 +287,13 @@ html.dark-theme .riscvlogo--dark {
 }
 
 .nav-link:hover {
-  color: #06c;
+  color: var(--link_hover-font-color);
 }
 
 .nav-link:hover,
 .nav-text:hover {
   text-decoration: none;
-  background: #ebf2f2;
+  background: rgba(0, 50, 98, 0.06);
 }
 
 .dark-theme .nav-item-toggle:hover + .nav-link,

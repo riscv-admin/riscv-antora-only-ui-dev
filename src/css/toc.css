@@ -300,6 +300,10 @@ body.toc-left #doc {
   background-color: var(--toc-hover-background-color);
 }
 
+html:not(.dark-theme) #toc a:hover {
+  color: var(--link_hover-font-color);
+}
+
 body.fixed-toc #toc {
   position: fixed;
   top: 0;

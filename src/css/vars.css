@@ -56,7 +56,7 @@
   --layout-border-color: var(--color-accent-1);
 
   /* Admonitions */
-  --admonition-background: var(--color-accent-1);
+  --admonition-background: rgba(0, 50, 98, 0.06);
   --admonition-label-font-weight: var(--body-font-weight-bold);
   --admonition-font-color: #f0f0f0;
   --caution-color: #60269e;
@@ -94,7 +94,7 @@
   --tabs-font-color: var(--body-font-color);
   --tabs-selected-background-color: var(--selected-background-color);
   --tabs-selected-font-color: var(--body-background-color);
-  --tabs-hover-font-color: var(--hover-link-font-color);
+  --tabs-hover-font-color: var(--link_hover-font-color);
   --tabs-hover-background: var(--color-accent-1);
   --tabs-group-background-color: var(--panel-group-background-color);
 
@@ -102,7 +102,7 @@
   --toc-width: 24rem;
   --toc-display: block;
   --toc-font-color: var(--body-font-color);
-  --toc-hover-background-color: var(--color-accent-1);
+  --toc-hover-background-color: rgba(0, 50, 98, 0.06);
   --toc-active-background-color: var(--selected-background-color);
   --toc-active-font-color: var(--body-background-color);
   --toc-back-to-index-filter: none;
@@ -276,6 +276,7 @@ html.dark-theme {
   --selected-background-color: #e5e5e5;
 
   /* Admonitions */
+  --admonition-background: var(--color-accent-1);
   --admonition-font-color: #f0f0f0;
   --caution-color: #60269e;
   --important-color: #cb007b;
@@ -304,6 +305,7 @@ html.dark-theme {
   /* TOC */
   --toc-back-to-index-filter: invert();
   --toc-bar-button-filter: invert();
+  --toc-hover-background-color: var(--color-accent-1);
 
   /* Code Tools */
   --codetools-button-filter: invert();
