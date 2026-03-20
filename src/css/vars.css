@@ -35,8 +35,8 @@
   --panel-background: var(--panel-background-color);
   --panel-group-background-color: #e1e8e8;
   --panel-border-color: #eaedf0;
-  --color-accent-1: #ebf2f2;
-  --color-accent-1-hover: #d3dddd;
+  --color-accent-1: rgba(0, 50, 98, 0.06);
+  --color-accent-1-hover: rgba(0, 50, 98, 0.12);
   --color-accent-2: #d7e7e7;
   --color-accent-3: #fdb515;
   --body-font-color: #191e1e;
@@ -56,7 +56,7 @@
   --layout-border-color: var(--color-accent-1);
 
   /* Admonitions */
-  --admonition-background: rgba(0, 50, 98, 0.06);
+  --admonition-background: var(--color-accent-1);
   --admonition-label-font-weight: var(--body-font-weight-bold);
   --admonition-font-color: #f0f0f0;
   --caution-color: #60269e;
@@ -191,7 +191,7 @@
   --quote-border-color: var(--color-accent-3);
   --quote-font-color: var(--color-gray-70);
   --quote-attribution-font-color: var(--color-accent-3);
-  --sidebar-background: var(--color-accent-1);
+  --sidebar-background: var(--admonition-background);
   --table-border-color: var(--panel-border-color);
   --table-stripe-background: var(--panel-background);
   --table-footer-background: var(--color-accent-1);
