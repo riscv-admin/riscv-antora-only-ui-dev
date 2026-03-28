@@ -1094,7 +1094,7 @@
 }
 
 .doc img.center,
-.doc #riscvlogo {
+.doc img.center {
   display: block;
   margin-left: auto;
   margin-right: auto;
