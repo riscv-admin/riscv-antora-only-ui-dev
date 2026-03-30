@@ -152,7 +152,13 @@ body.status-404 a {
 
 /* Home icon styling */
 .navbar-item.home .home-icon {
-  width: 24px;
-  height: 24px;
+  width: 40px;
+  height: 40px;
   vertical-align: middle;
+}
+
+/* Prevent home icon from expanding to fill brand bar */
+.navbar-brand .navbar-item.home {
+  flex-grow: 0;
+  padding-left: 0;
 }
