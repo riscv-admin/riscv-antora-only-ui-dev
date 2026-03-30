@@ -80,14 +80,14 @@
 
       {{#if (eq page.module "unpriv")}}
         {{#if page.attributes.pdf_url_unpriv}}
-          <a href="{{page.attributes.pdf_url_unpriv}}" target="_blank" rel="noopener noreferrer" class="sidebar-link" download>
+            <a href="{{page.attributes.pdf_url_unpriv}}" class="sidebar-link" download>
             <i class="fa fa-file-pdf-o" aria-hidden="true"></i>
             <span>Download PDF</span>
           </a>
         {{/if}}
       {{else if (eq page.module "priv")}}
         {{#if page.attributes.pdf_url_priv}}
-          <a href="{{page.attributes.pdf_url_priv}}" target="_blank" rel="noopener noreferrer" class="sidebar-link" download>
+            <a href="{{page.attributes.pdf_url_priv}}" class="sidebar-link" download>
             <i class="fa fa-file-pdf-o" aria-hidden="true"></i>
             <span>Download PDF</span>
           </a>
@@ -105,7 +105,7 @@
           </a>
           <ul id="pdfDropdownMenu" class="dropdown-menu" hidden>
             {{#each page.attributes.pdf_list}}
-              <li style="padding-left: 0px;"><a href="{{url}}" class="dropdown-item" target="_blank" rel="noopener noreferrer" style="color: #003262;" download>{{text}}</a></li>
+              <li style="padding-left: 0px;"><a href="{{url}}" class="dropdown-item" style="color: #003262;" download>{{text}}</a></li>
             {{/each}}
           </ul>
         </div>
@@ -146,7 +146,7 @@
 </script>
       {{else}}
         {{#if page.attributes.pdf_url}}
-          <a href="{{page.attributes.pdf_url}}" target="_blank" rel="noopener noreferrer" title="PDF" class="sidebar-link" download>
+          <a href="{{page.attributes.pdf_url}}" title="PDF" class="sidebar-link" download>
             <i class="fa fa-file-pdf-o" aria-hidden="true"></i>
             <span>Download PDF</span>
           </a>
