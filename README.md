@@ -1,6 +1,6 @@
 # RISC-V Antora UI
 
-This project generates and packages the static resources that RISC-V uses for the [RISC-V Docs resource site](https://docs.riscv.org/). 
+This project generates and packages the static resources that RISC-V uses for the [RISC-V Docs resource site](https://docs.riscv.org/).
 
 This GitHub repository contains the UI pieces for production. For development UI, see [RISC-V Antora UI Development](https://github.com/riscv-admin/riscv-antora-only-ui-dev).
 
