@@ -2,19 +2,30 @@
   <nav class="breadcrumbs" aria-label="breadcrumbs">
     {{#if page.breadcrumbs}}
     <ul>
+      <li><a href="{{siteRootPath}}/home/index.html">RISC-V Specifications</a></li>
       {{#with page.componentVersion}}
-      {{#if (and ./title (ne ./title @root.page.breadcrumbs.0.content))}}
-      <li><a href="{{{relativize ./url}}}">{{{./title}}}</a></li>
-      {{/if}}
+        {{#if ./title}}
+          {{#if (eq ../page.module 'priv')}}
+            <li><a href="../isa/priv-index.html">{{{./title}}}</a></li>
+          {{else if (eq ../page.module 'unpriv')}}
+            <li><a href="../isa/unpriv-index.html">{{{./title}}}</a></li>
+          {{else if (eq ../page.module 'aia')}}
+            <li><a href="../aia/index.html">{{{./title}}}</a></li>
+          {{else if (eq ../page.module 'rimt')}}
+            <li><a href="../rimt/index.html">{{{./title}}}</a></li>
+          {{else if (eq ../page.module 'plic')}}
+            <li><a href="../plic/index.html">{{{./title}}}</a></li>
+          {{else}}
+            <li><a href="index.html">{{{./title}}}</a></li>
+          {{/if}}
+        {{/if}}
       {{/with}}
       {{#each page.breadcrumbs}}
-      <li>
-      {{~#if (and ./url (eq ./urlType 'internal'))~}}
-      <a href="{{{relativize ./url}}}">{{{./content}}}</a>
-      {{~else~}}
-      {{{./content}}}
-      {{~/if~}}
-      </li>
+        {{#if (and (ne ./content @root.page.componentVersion.title) ./url (eq ./urlType 'internal'))}}
+          <li>
+            <a href="{{{relativize ./url}}}">{{{./content}}}</a>
+          </li>
+        {{/if}}
       {{/each}}
     </ul>
     {{/if}}
