@@ -1,3 +1,25 @@
-<div class="context">
-  <span class="title">{{#if (eq page.component.name "isa")}}ISA{{else if (or (eq page.component.name "profile") (eq page.component.name "profiles") (eq page.component.name "rvprofile") (eq page.component.name "rva23") (eq page.component.name "rvb23"))}}Profiles{{else if (or (eq page.component.name "hardware") (eq page.component.name "aia") (eq page.component.name "iommu") (eq page.component.name "plic") (eq page.component.name "soc"))}}Hardware{{else if (or (eq page.component.name "debug-trace-ras") (eq page.component.name "techtrace") (eq page.component.name "qos") (eq page.component.name "reri") (eq page.component.name "etrace") (eq page.component.name "ntrace") (eq page.component.name "connectors") (eq page.component.name "tci"))}}Debug, Trace, RAS{{else if (or (eq page.component.name "platform-software") (eq page.component.name "ffh") (eq page.component.name "semihost") (eq page.component.name "brs") (eq page.component.name "rimt") (eq page.component.name "sbi") (eq page.component.name "rpmi") (eq page.component.name "uefi"))}}Platform Software{{else if (or (eq page.component.name "app-enablement") (eq page.component.name "intrinsic") (eq page.component.name "abi"))}}Application Enablement{{else}}{{page.component.title}}{{/if}}</span>
-</div>
+{{!-- Only render the context bar once. --}}
+{{#if page.component.asciidoc.attributes.page-group}}
+  {{!-- Render the overview bar if found. --}}
+  {{#each site.components}}
+    {{#if (and (eq this.asciidoc.attributes.page-group ../page.component.asciidoc.attributes.page-group) (eq this.asciidoc.attributes.is-overview true))}}
+      <div class="context">
+        <span class="title">
+          <a href="{{this.start_page.url}}">{{this.title}}</a>
+        </span>
+      </div>
+    {{/if}}
+  {{/each}}
+  {{!-- Always render the fallback. If the overview exists, it will appear above this. --}}
+  <div class="context">
+    <span class="title">
+      <a href="{{page.component.url}}">{{page.component.title}}</a>
+    </span>
+  </div>
+{{else}}
+  <div class="context">
+    <span class="title">
+      <a href="{{page.component.url}}">{{page.component.title}}</a>
+    </span>
+  </div>
+{{/if}}
