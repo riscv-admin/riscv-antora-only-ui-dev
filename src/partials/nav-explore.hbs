@@ -3,15 +3,15 @@
     {{#if (eq page.component.name "isa")}}
       ISA
     {{else if (or (eq page.component.name "profile") (eq page.component.name "profiles") (eq page.component.name "rvprofile") (eq page.component.name "rva23") (eq page.component.name "rvb23"))}}
-      Profiles
+      <a class="nav-link" href="/antora-dev.riscv.org/antora/build/reference/profiles-overview/profiles.html">Profiles</a>
     {{else if (or (eq page.component.name "hardware") (eq page.component.name "aia") (eq page.component.name "iommu") (eq page.component.name "plic") (eq page.component.name "soc"))}}
-      Hardware
+      <a class="nav-link" href="/antora-dev.riscv.org/antora/build/reference/hardware-overview/hardware.html">Hardware</a>
     {{else if (isInGroup page.component "debug-trace-ras")}}
-      Debug, Trace, RAS
+      <a class="nav-link" href="/antora-dev.riscv.org/antora/build/reference/trace-debug-ras-overview/trace-debug-ras.html">Debug, Trace, RAS</a>
     {{else if (or (eq page.component.name "platform-software") (eq page.component.name "ffh") (eq page.component.name "semihost") (eq page.component.name "brs") (eq page.component.name "rimt") (eq page.component.name "sbi") (eq page.component.name "rpmi") (eq page.component.name "uefi"))}}
-      Platform Software
+      <a class="nav-link" href="/antora-dev.riscv.org/antora/build/reference/platform-software-overview/platform-software.html">Platform Software</a>
     {{else if (or (eq page.component.name "app-enablement") (eq page.component.name "intrinsic") (eq page.component.name "abi"))}}
-      Application Enablement
+      <a class="nav-link" href="/antora-dev.riscv.org/antora/build/reference/app-enablement-overview/app-enablement.html">Application Enablement</a>
     {{else}}
       {{page.component.title}}
     {{/if}}
