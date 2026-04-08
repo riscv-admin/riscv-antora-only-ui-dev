@@ -8,19 +8,21 @@
   var navToggle1 = document.querySelector('#nav-toggle-1')
   var navToggle2 = document.querySelector('#nav-toggle-2')
   
-  // Detect home page: check data attribute first, then check URL
+
+  // Detect home or overview page
   var isHomePage = (navContainer && navContainer.getAttribute('data-is-home') === 'true') ||
                    (navContainer && navContainer.getAttribute('data-component') === 'home') ||
                    window.location.pathname.includes('/home/') ||
-                   window.location.pathname === '/'
-  
-  var sidebarPref = window.localStorage && window.localStorage.getItem('sidebar')
-  var isNavOpen = isHomePage ? false : (sidebarPref === 'open' || sidebarPref !== 'close')
+                   window.location.pathname === '/';
+  var isOverviewPage = navContainer && navContainer.getAttribute('data-is-overview') === 'true';
 
-  // Always start collapsed on home page
-  if (isHomePage) {
-    document.body.classList.add('nav-sm')
-    isNavOpen = false
+  var sidebarPref = window.localStorage && window.localStorage.getItem('sidebar');
+  var isNavOpen = (isHomePage || isOverviewPage) ? false : (sidebarPref === 'open' || sidebarPref !== 'close');
+
+  // Always start collapsed on home or overview page
+  if (isHomePage || isOverviewPage) {
+    document.body.classList.add('nav-sm');
+    isNavOpen = false;
   }
   
   if (navToggle1) {

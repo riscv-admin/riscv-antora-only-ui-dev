@@ -1,18 +1,16 @@
-/* Unify hover shading for context title and nav links */
-.nav-panel-menu .context .title:hover,
-.context .title:hover {
-  background: rgba(0, 50, 98, 0.06) !important;
+/* Bold only the top-level RISC-V Specifications link */
+.nav-menu > .nav-list > .nav-item:first-child > .nav-link {
+  font-weight: bold;
 }
+/* Unify hover shading for context title and nav links */
 .context {
   width: 100%;
   overflow: visible;
 }
-
 .context .title {
-  display: inline-block;
+  display: inline;
   padding: 0.4rem 0.75rem;
-  border-radius: 3px;
-  margin: 0 0 0 0.5rem;
+  /* Remove border-radius and margin to eliminate box and indentation */
   max-width: 100%;
   transition: background 0.15s;
 }
@@ -24,6 +22,19 @@
   margin: 0 0 0 0.5rem;
   max-width: 100%;
   transition: background 0.15s;
+  font-weight: normal;
+}
+
+/* Bold for context title */
+.context .nav-link {
+  font-weight: bold;
+}
+
+
+
+/* Bold for nav-text (section headers) */
+.nav-text {
+  font-weight: bold;
 }
 .context {
   margin-top: 0;
@@ -32,16 +43,6 @@
   clear: both;
 }
 /* Context title alignment and spacing */
-.context .nav-link {
-  margin-left: 0 !important;
-  padding: 0.5rem 0.5rem !important;
-  font-weight: bold;
-  display: inline-block;
-  line-height: 1.4;
-  border-radius: 3px;
-  vertical-align: middle;
-  padding-left: 0 !important;
-}
 
 .context {
   display: block;
@@ -130,14 +131,6 @@
 
 .nav-container.is-active {
   visibility: visible;
-}
-
-.nav {
-  background: var(--nav-background);
-  position: relative;
-  top: var(--toolbar-height);
-  height: var(--nav-height);
-  border: 0 none;
 }
 
 .nav .panels {
@@ -336,7 +329,6 @@ html.dark-theme .riscvlogo--dark {
   text-decoration: none;
   background: rgba(0, 50, 98, 0.06);
 }
-.nav-panel-menu .context .title:hover,
 .nav-link:hover,
 .nav-text:hover {
   background: rgba(0, 50, 98, 0.06) !important;

@@ -1,11 +1,15 @@
-<div class="nav-container"{{#if page.component}} data-component="{{page.component.name}}" data-version="{{page.version}}"{{/if}}{{#if page.component}}{{#if (eq page.component.name 'home')}} data-is-home="true"{{/if}}{{/if}}>
+<div class="nav-container"{{#if page.component}} data-component="{{page.component.name}}" data-version="{{page.version}}"{{/if}}{{#if page.component}}
+  {{#if (eq page.component.name 'home')}} data-is-home="true"
+  {{else if (or (eq page.component.name 'hardware-overview') (eq page.component.name 'profiles-overview') (eq page.component.name 'platform-software-overview') (eq page.component.name 'trace-debug-ras-overview') (eq page.component.name 'app-enablement-overview'))}} data-is-overview="true"
+  {{/if}}
+{{/if}}>
   <aside class="nav">
     <div class="panels">
       <div class="nav-panel-menu is-active" data-panel="menu">
         <nav class="nav-menu">
           <ul class="nav-list" style="padding-left: 0; margin: 0;">
             <li class="nav-item" style="padding-left: 0;">
-              <a class="nav-link" href="{{siteRootPath}}/{{or site.keys.toc_home_link_path 'home/index.html'}}" style="font-weight: bold; font-size: 1.1em; margin-left: 0; padding-left: 1rem;">{{or site.keys.toc_home_link_label 'RISC-V Specifications'}}</a>
+              <a class="nav-link" href="{{siteRootPath}}/{{or site.keys.toc_home_link_path 'home/index.html'}}">{{or site.keys.toc_home_link_label 'RISC-V Specifications'}}</a>
             </li>
           </ul>
 {{> nav-explore}}
