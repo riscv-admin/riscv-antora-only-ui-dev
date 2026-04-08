@@ -1,3 +1,4 @@
+{{#unless (and (eq page.component.name "home") (eq page.url "/home/index.html"))}}
 <div class="breadcrumbs-container">
   <nav class="breadcrumbs" aria-label="breadcrumbs">
     {{#if page.breadcrumbs}}
@@ -23,11 +24,11 @@
       {{#with page.componentVersion}}
         {{#if ./title}}
           {{#if (eq ../page.module 'priv')}}
-            <li><a href="priv-index.html">{{{./title}}}</a></li>
+            <li><a href="priv-index.html">ISA Privileged Specification</a></li>
           {{else if (eq ../page.module 'unpriv')}}
-            <li><a href="unpriv-index.html">{{{./title}}}</a></li>
+            <li><a href="unpriv-index.html">ISA Unprivileged Specification</a></li>
           {{else}}
-            <li><a href="index.html">{{{./title}}}</a></li>
+            <li><a href="index.html">ISA Specification</a></li>
           {{/if}}
         {{/if}}
       {{/with}}
@@ -42,3 +43,4 @@
     {{/if}}
   </nav>
 </div>
+{{/unless}}
