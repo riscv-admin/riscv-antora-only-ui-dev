@@ -1,6 +1,29 @@
-.context, .context .title {
+/* Unify hover shading for context title and nav links */
+.nav-panel-menu .context .title:hover,
+.context .title:hover {
+  background: rgba(0, 50, 98, 0.06) !important;
+}
+.context {
   width: 100%;
   overflow: visible;
+}
+
+.context .title {
+  display: inline-block;
+  padding: 0.4rem 0.75rem;
+  border-radius: 3px;
+  margin: 0 0 0 0.5rem;
+  max-width: 100%;
+  transition: background 0.15s;
+}
+.nav-link,
+.nav-text {
+  display: inline-block;
+  padding: 0.4rem 0.75rem;
+  border-radius: 3px;
+  margin: 0 0 0 0.5rem;
+  max-width: 100%;
+  transition: background 0.15s;
 }
 .context {
   margin-top: 0;
@@ -287,14 +310,7 @@ html.dark-theme .riscvlogo--dark {
   transform: rotate(0deg);
 }
 
-.nav-link,
-.nav-text {
-  display: block;
-  padding: 0.4rem 0.5rem;
-  border-radius: 3px;
-  margin: 0;
-  max-width: 100%;
-}
+/* Removed duplicate .nav-link, .nav-text block for clarity */
 
 .nav-item-toggle + .nav-link,
 .nav-item-toggle + .nav-text {
@@ -320,6 +336,11 @@ html.dark-theme .riscvlogo--dark {
   text-decoration: none;
   background: rgba(0, 50, 98, 0.06);
 }
+.nav-panel-menu .context .title:hover,
+.nav-link:hover,
+.nav-text:hover {
+  background: rgba(0, 50, 98, 0.06) !important;
+}
 
 .dark-theme .nav-item-toggle:hover + .nav-link,
 .dark-theme .nav-item-toggle:hover + .nav-text {
@@ -343,26 +364,15 @@ html.dark-theme .riscvlogo--dark {
 }
 
 .nav-panel-menu .context {
-  padding: 0.8rem 1rem;
-  padding-bottom: 0.8rem;
+  /* Removed background and left padding for testing alignment and hover */
   margin-bottom: 0.5rem;
   position: sticky;
   top: 0;
-  background-color: var(--body-background-color);
   z-index: 99;
   border-bottom: 4px solid #fdb515;
 }
 
-.nav-panel-menu .context .title {
-  font-weight: bold;
-  display: flex;
-  align-items: center;
-  padding-right: 30px;
-  margin-bottom: 4px;
-  white-space: nowrap;
-  overflow: hidden;
-  text-overflow: ellipsis;
-}
+/* Removed duplicate .nav-panel-menu .context .title block for clarity */
 
 .nav-menu > .version-box ~ .nav-list > .nav-item:first-child > .nav-link,
 .nav-menu > .version-box ~ .nav-list > .nav-item:first-child > .nav-text,
