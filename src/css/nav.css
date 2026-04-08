@@ -180,7 +180,7 @@ html.is-clipped--nav {
 }
 
 /* Keep wrapper parents for profile components, but align their root rows with ISA peers. */
-.nav-trees[data-component="rvprofile"] .nav-version-group > .nav-list > .nav-item > .nav-list,
+.nav-trees[data-component="rva20-rvi20-rva22"] .nav-version-group > .nav-list > .nav-item > .nav-list,
 .nav-trees[data-component="rva23"] .nav-version-group > .nav-list > .nav-item > .nav-list,
 .nav-trees[data-component="rvb23"] .nav-version-group > .nav-list > .nav-item > .nav-list {
   margin-left: 0;

@@ -7,15 +7,15 @@
       <li><a href="{{siteRootPath}}/home/index.html">RISC-V Specifications</a></li>
 
       {{!-- Insert overview page breadcrumb for all groups in overview --}}
-      {{#if (or (eq page.component.name "profile") (eq page.component.name "profiles") (eq page.component.name "rvprofile") (eq page.component.name "rva23") (eq page.component.name "rvb23"))}}
+      {{#if (or (eq page.component.name "profile") (eq page.component.name "profiles") (eq page.component.name "rva20-rvi20-rva22") (eq page.component.name "rva23") (eq page.component.name "rvb23"))}}
         <li><a href="{{siteRootPath}}/profiles-overview/index.html">Profiles Overview</a></li>
-      {{else if (or (eq page.component.name "hardware") (eq page.component.name "aia") (eq page.component.name "iommu") (eq page.component.name "plic") (eq page.component.name "soc"))}}
+      {{else if (or (eq page.component.name "hardware") (eq page.component.name "aia") (eq page.component.name "iommu") (eq page.component.name "plic") (eq page.component.name "server-soc"))}}
         <li><a href="{{siteRootPath}}/hardware-overview/index.html">Hardware Overview</a></li>
       {{else if (isInGroup page.component "debug-trace-ras")}}
         <li><a href="{{siteRootPath}}/trace-debug-ras-overview/index.html">Debug, Trace, RAS Overview</a></li>
-      {{else if (or (eq page.component.name "platform-software") (eq page.component.name "ffh") (eq page.component.name "semihost") (eq page.component.name "brs") (eq page.component.name "rimt") (eq page.component.name "sbi") (eq page.component.name "rpmi") (eq page.component.name "uefi"))}}
+      {{else if (or (eq page.component.name "platform-software") (eq page.component.name "acpi-ffh") (eq page.component.name "semihosting") (eq page.component.name "brs") (eq page.component.name "acpi-rimt") (eq page.component.name "sbi") (eq page.component.name "rpmi") (eq page.component.name "uefi"))}}
         <li><a href="{{siteRootPath}}/platform-software-overview/index.html">Platform Software Overview</a></li>
-      {{else if (or (eq page.component.name "app-enablement") (eq page.component.name "intrinsic") (eq page.component.name "abi"))}}
+      {{else if (or (eq page.component.name "app-enablement") (eq page.component.name "vector-c-intrinsics") (eq page.component.name "abi"))}}
         <li><a href="{{siteRootPath}}/app-enablement-overview/index.html">Application Enablement Overview</a></li>
       {{/if}}
       {{#if (eq page.component.name "isa")}}
