@@ -2,6 +2,7 @@
   <nav class="breadcrumbs" aria-label="breadcrumbs">
     {{#if page.breadcrumbs}}
     <ul>
+
       <li><a href="{{siteRootPath}}/home/index.html">RISC-V Specifications</a></li>
 
       {{!-- Insert overview page breadcrumb for all groups in overview --}}
@@ -16,18 +17,15 @@
       {{else if (or (eq page.component.name "app-enablement") (eq page.component.name "intrinsic") (eq page.component.name "abi"))}}
         <li><a href="{{siteRootPath}}/app-enablement-overview/index.html">Application Enablement Overview</a></li>
       {{/if}}
+      {{#if (eq page.component.name "isa")}}
+        <li><a href="{{siteRootPath}}/isa/index.html">ISA</a></li>
+      {{/if}}
       {{#with page.componentVersion}}
         {{#if ./title}}
           {{#if (eq ../page.module 'priv')}}
-            <li><a href="../isa/priv-index.html">{{{./title}}}</a></li>
+            <li><a href="priv-index.html">{{{./title}}}</a></li>
           {{else if (eq ../page.module 'unpriv')}}
-            <li><a href="../isa/unpriv-index.html">{{{./title}}}</a></li>
-          {{else if (eq ../page.module 'aia')}}
-            <li><a href="../aia/index.html">{{{./title}}}</a></li>
-          {{else if (eq ../page.module 'rimt')}}
-            <li><a href="../rimt/index.html">{{{./title}}}</a></li>
-          {{else if (eq ../page.module 'plic')}}
-            <li><a href="../plic/index.html">{{{./title}}}</a></li>
+            <li><a href="unpriv-index.html">{{{./title}}}</a></li>
           {{else}}
             <li><a href="index.html">{{{./title}}}</a></li>
           {{/if}}
