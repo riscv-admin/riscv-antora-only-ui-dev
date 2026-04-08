@@ -23,12 +23,22 @@
       {{/if}}
       {{#with page.componentVersion}}
         {{#if ./title}}
-          {{#if (eq ../page.module 'priv')}}
-            <li><a href="priv-index.html">ISA Privileged Specification</a></li>
-          {{else if (eq ../page.module 'unpriv')}}
-            <li><a href="unpriv-index.html">ISA Unprivileged Specification</a></li>
+          {{#if (eq ../page.component.name "isa")}}
+            {{#if (eq ../page.module 'priv')}}
+              <li><a href="priv-index.html">Privileged</a></li>
+            {{else if (eq ../page.module 'unpriv')}}
+              <li><a href="unpriv-index.html">Unprivileged</a></li>
+            {{else}}
+              <li><a href="index.html">ISA Specification</a></li>
+            {{/if}}
           {{else}}
-            <li><a href="index.html">ISA Specification</a></li>
+            {{#if (eq ../page.module 'priv')}}
+              <li><a href="priv-index.html">{{{./title}}}</a></li>
+            {{else if (eq ../page.module 'unpriv')}}
+              <li><a href="unpriv-index.html">{{{./title}}}</a></li>
+            {{else}}
+              <li><a href="index.html">{{{./title}}}</a></li>
+            {{/if}}
           {{/if}}
         {{/if}}
       {{/with}}

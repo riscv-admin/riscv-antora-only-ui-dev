@@ -289,11 +289,10 @@ html.dark-theme .riscvlogo--dark {
 
 .nav-link,
 .nav-text {
-  display: inline-block;
+  display: block;
   padding: 0.4rem 0.5rem;
   border-radius: 3px;
-  padding-left: 12px;
-  margin-left: 10px;
+  margin: 0;
   max-width: 100%;
 }
 
