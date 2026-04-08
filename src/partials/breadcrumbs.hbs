@@ -19,7 +19,13 @@
         <li><a href="{{siteRootPath}}/app-enablement-overview/index.html">Application Enablement Overview</a></li>
       {{/if}}
       {{#if (eq page.component.name "isa")}}
-        <li><a href="{{siteRootPath}}/isa/index.html">ISA</a></li>
+        <li>
+          {{#if page.version}}
+            <a href="{{siteRootPath}}/isa/{{page.version}}/index.html">ISA</a>
+          {{else}}
+            <a href="{{siteRootPath}}/isa/index.html">ISA</a>
+          {{/if}}
+        </li>
       {{/if}}
       {{#with page.componentVersion}}
         {{#if ./title}}
