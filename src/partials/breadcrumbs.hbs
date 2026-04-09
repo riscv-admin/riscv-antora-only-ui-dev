@@ -20,7 +20,8 @@
       {{/if}}
       {{#if (eq page.component.name "isa")}}
         <li>
-          {{#if page.version}}
+          {{!-- Use unversioned link for latest ISA, versioned for others --}}
+          {{#if (and page.version (ne page.version "v20260120"))}}
             <a href="{{siteRootPath}}/isa/{{page.version}}/index.html">ISA</a>
           {{else}}
             <a href="{{siteRootPath}}/isa/index.html">ISA</a>
