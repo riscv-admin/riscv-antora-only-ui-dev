@@ -356,12 +356,13 @@ html.dark-theme .riscvlogo--dark {
 }
 
 .nav-panel-menu .context {
-  /* Removed background and left padding for testing alignment and hover */
+  background: var(--nav-background, #fff);
   margin-bottom: 0.5rem;
   position: sticky;
   top: 0;
   z-index: 99;
   border-bottom: 4px solid #fdb515;
+  box-shadow: 0 2px 8px -4px rgba(0,0,0,0.08);
 }
 
 /* Removed duplicate .nav-panel-menu .context .title block for clarity */
