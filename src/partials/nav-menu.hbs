@@ -168,6 +168,34 @@
         </div>
       {{/if}}
     {{/each}}
+  {{else if (isInGroup @root.page.component "test")}}
+    {{!-- Show all test-group components when viewing any of them --}}
+    {{#each site.components}}
+      {{#if (isInGroup this "test")}}
+        <div class="nav-trees" data-component="{{this.name}}">
+          <div class="version-box">
+            <select data-component="{{this.name}}" class="select-version">
+              {{#each this.versions}}
+                <option
+                  value="{{#if this.url}}{{{relativize this.url}}}{{/if}}"
+                  data-version="{{this.version}}"
+                  {{#if (or this.missing (not this.url))}}disabled{{/if}}
+                  {{#if (or (and (eq ../name @root.page.component.name) (eq this.version @root.page.version)) (and (not (eq ../name @root.page.component.name)) (not this.missing) this.url (or this.latest @first)))}}selected{{/if}}>
+                  {{this.displayVersion}}{{#if (or this.missing (not this.url))}} (unavailable){{/if}}
+                </option>
+              {{/each}}
+            </select>
+          </div>
+          {{#each this.versions}}
+            {{#if (and this.navigation (or (and (eq ../name @root.page.component.name) (eq this.version @root.page.version)) (and (not (eq ../name @root.page.component.name)) (not this.missing) this.url (or this.latest @first))))}}
+              <div data-component="{{../name}}" data-version="{{this.version}}" class="nav-version-group">
+                {{> nav-tree navigation=this.navigation}}
+              </div>
+            {{/if}}
+          {{/each}}
+        </div>
+      {{/if}}
+    {{/each}}
   {{else}}
     {{!-- Standard navigation for non-grouped components with version selector --}}
     <div class="version-box">
