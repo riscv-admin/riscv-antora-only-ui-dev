@@ -8,11 +8,13 @@
   overflow: visible;
 }
 .context .title {
-  display: inline;
-  padding: 0.4rem 0.75rem;
-  /* Remove border-radius and margin to eliminate box and indentation */
+  display: inline-block;
+  padding: 0.4rem 0.75rem 0.4rem 1.25rem;
   max-width: 100%;
   transition: background 0.15s;
+  font-weight: bold;
+  /* Match .nav-link context styling */
+  /* Optional: add border-radius and margin if desired for perfect match */
 }
 .nav-link,
 .nav-text {
