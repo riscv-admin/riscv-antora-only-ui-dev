@@ -1085,6 +1085,7 @@
   text-align: right;
   width: 1.5em;
 }
+
 .doc h1.center {
   text-align: center;
 }
@@ -1307,7 +1308,8 @@ mark {
   hyphens: none;
   padding: 0 0.5em;
   margin: -0.05em;
-  filter: invert(100%);
+  /* Ensure label text color is correct and not affected by filter */
+  filter: none !important;
 }
 
 .doc .admonitionblock i.fa {
@@ -1419,4 +1421,11 @@ mark {
 
 .breadcrumbs a:hover {
   color: var(--breadcrumb-hover-font-color);
+}
+
+/* Hide only the admonition icon graphic, keep label text visible */
+.admonitionblock td.icon i {
+  background: none !important;
+  filter: none !important;
+  padding-left: 0 !important;
 }
