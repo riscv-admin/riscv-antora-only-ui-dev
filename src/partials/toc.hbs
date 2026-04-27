@@ -66,13 +66,8 @@
           <svg viewBox="0 0 500 500" xmlns="http://www.w3.org/2000/svg"><circle cx="250" cy="250" r="193" fill="none" stroke="currentColor" stroke-width="23" stroke-miterlimit="10"/><circle cx="148.5" cy="250" r="31.5" fill="currentColor"/><circle cx="250" cy="250" r="31.5" fill="currentColor"/><circle cx="351.5" cy="250" r="31.5" fill="currentColor"/></svg>
           More Details
         </a>
-      {{else if page.attributes.more_details_url}}
-        <a href="{{page.attributes.more_details_url}}" target="_blank" rel="noopener noreferrer" class="sidebar-link">
-          <svg viewBox="0 0 500 500" xmlns="http://www.w3.org/2000/svg"><circle cx="250" cy="250" r="193" fill="none" stroke="currentColor" stroke-width="23" stroke-miterlimit="10"/><circle cx="148.5" cy="250" r="31.5" fill="currentColor"/><circle cx="250" cy="250" r="31.5" fill="currentColor"/><circle cx="351.5" cy="250" r="31.5" fill="currentColor"/></svg>
-          More Details
-        </a>
-      {{else if page.componentVersion.asciidoc.attributes.more_details_url}}
-        <a href="{{page.componentVersion.asciidoc.attributes.more_details_url}}" target="_blank" rel="noopener noreferrer" class="sidebar-link">
+      {{else if page.attributes.wiki_url}}
+        <a href="{{page.attributes.wiki_url}}" target="_blank" rel="noopener noreferrer" class="sidebar-link">
           <svg viewBox="0 0 500 500" xmlns="http://www.w3.org/2000/svg"><circle cx="250" cy="250" r="193" fill="none" stroke="currentColor" stroke-width="23" stroke-miterlimit="10"/><circle cx="148.5" cy="250" r="31.5" fill="currentColor"/><circle cx="250" cy="250" r="31.5" fill="currentColor"/><circle cx="351.5" cy="250" r="31.5" fill="currentColor"/></svg>
           More Details
         </a>
