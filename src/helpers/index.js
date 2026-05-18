@@ -1,0 +1,21 @@
+const path = require('path');
+module.exports = {
+	and: require(path.join(__dirname, 'and.js')),
+	asciidocExtensionRegistered: require(path.join(__dirname, 'asciidocExtensionRegistered.js')),
+	detag: require(path.join(__dirname, 'detag.js')),
+	eq: require(path.join(__dirname, 'eq.js')),
+	getPageGroups: require(path.join(__dirname, 'getPageGroups.js')),
+	increment: require(path.join(__dirname, 'increment.js')),
+	isInGroup: require(path.join(__dirname, 'isInGroup.js')),
+	json: require(path.join(__dirname, 'json.js')),
+	log: require(path.join(__dirname, 'log.js')),
+	nav_children: require(path.join(__dirname, 'nav_children.js')),
+	ne: require(path.join(__dirname, 'ne.js')),
+	not: require(path.join(__dirname, 'not.js')),
+	notEmpty: require(path.join(__dirname, 'notEmpty.js')),
+	or: require(path.join(__dirname, 'or.js')),
+	related_projects: require(path.join(__dirname, 'related_projects.js')),
+	split: require(path.join(__dirname, 'split.js')),
+	versionTree: require(path.join(__dirname, 'versionTree.js')),
+	year: require(path.join(__dirname, 'year.js')),
+};
