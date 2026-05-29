@@ -5,6 +5,8 @@
     <a class="nav-link" href="{{siteRootPath}}/profiles-overview/index.html">Profiles</a>
   {{else if (or (eq page.component.name "hardware") (eq page.component.name "aia") (eq page.component.name "iommu") (eq page.component.name "plic") (eq page.component.name "server-soc"))}}
     <a class="nav-link" href="{{siteRootPath}}/hardware-overview/index.html">Hardware</a>
+  {{else if (eq page.component.name "platforms")}}
+    <a class="nav-link" href="{{siteRootPath}}/platforms-overview/index.html">Platforms</a>
   {{else if (isInGroup page.component "debug-trace-ras")}}
     <a class="nav-link" href="{{siteRootPath}}/trace-debug-ras-overview/index.html">Debug, Trace, RAS</a>
   {{else if (or (eq page.component.name "platform-software") (eq page.component.name "acpi-ffh") (eq page.component.name "semihosting") (eq page.component.name "brs") (eq page.component.name "acpi-rimt") (eq page.component.name "sbi") (eq page.component.name "rpmi") (eq page.component.name "uefi"))}}
