@@ -1,6 +1,6 @@
 <div class="nav-container"{{#if page.component}} data-component="{{page.component.name}}" data-version="{{page.version}}"{{/if}}{{#if page.component}}
   {{#if (eq page.component.name 'home')}} data-is-home="true"
-  {{else if (or (eq page.component.name 'hardware-overview') (eq page.component.name 'profiles-overview') (eq page.component.name 'platform-software-overview') (eq page.component.name 'trace-debug-ras-overview') (eq page.component.name 'app-enablement-overview'))}} data-is-overview="true"
+  {{else if (or (eq page.component.name 'hardware-overview') (eq page.component.name 'profiles-overview') (eq page.component.name 'platform-software-overview') (eq page.component.name 'trace-debug-ras-overview') (eq page.component.name 'app-enablement-overview') (eq page.component.name 'platforms-overview'))}} data-is-overview="true"
   {{/if}}
 {{/if}}>
   <aside class="nav">
