@@ -1,18 +1,20 @@
 <div class="context">
   {{#if (or (eq page.component.name "isa") (isInGroup page.component "isa"))}}
     <a class="nav-link" href="{{siteRootPath}}/isa/index.html">ISA</a>
-  {{else if (or (eq page.component.name "profiles-overview") (isInGroup page.component "profile") (eq page.component.name "profiles") (eq page.component.name "rva20-rvi20-rva22") (eq page.component.name "rva23") (eq page.component.name "rvb23"))}}
+  {{else if (or (eq page.component.name "profiles-overview") (isInGroup page.component "profile") (eq page.component.name "profiles"))}}
     <a class="nav-link" href="{{siteRootPath}}/profiles-overview/index.html">Profiles</a>
-  {{else if (or (eq page.component.name "hardware-overview") (isInGroup page.component "hardware") (eq page.component.name "hardware") (eq page.component.name "aia") (eq page.component.name "iommu") (eq page.component.name "plic") (eq page.component.name "server-soc"))}}
+  {{else if (or (eq page.component.name "hardware-overview") (isInGroup page.component "hardware") (eq page.component.name "hardware"))}}
     <a class="nav-link" href="{{siteRootPath}}/hardware-overview/index.html">Hardware</a>
   {{else if (or (eq page.component.name "trace-debug-ras-overview") (isInGroup page.component "debug-trace-ras"))}}
     <a class="nav-link" href="{{siteRootPath}}/trace-debug-ras-overview/index.html">Debug, Trace, and RAS</a>
-  {{else if (or (eq page.component.name "platform-software-overview") (isInGroup page.component "platform-software") (eq page.component.name "platform-software") (eq page.component.name "acpi-ffh") (eq page.component.name "semihosting") (eq page.component.name "brs") (eq page.component.name "acpi-rimt") (eq page.component.name "sbi") (eq page.component.name "rpmi") (eq page.component.name "uefi"))}}
+  {{else if (or (eq page.component.name "platform-software-overview") (isInGroup page.component "platform-software") (eq page.component.name "platform-software"))}}
     <a class="nav-link" href="{{siteRootPath}}/platform-software-overview/index.html">Platform Software</a>
-  {{else if (or (eq page.component.name "app-enablement-overview") (isInGroup page.component "application-software") (eq page.component.name "app-enablement") (eq page.component.name "vector-c-intrinsics") (eq page.component.name "abi"))}}
+  {{else if (or (eq page.component.name "app-enablement-overview") (isInGroup page.component "application-software") (eq page.component.name "app-enablement"))}}
     <a class="nav-link" href="{{siteRootPath}}/app-enablement-overview/index.html">Application Enablement</a>
-  {{else if (or (eq page.component.name "platforms-overview") (eq page.component.name "platforms") (eq page.component.name "platform") (isInGroup page.component "platforms") (eq page.component.name "server-platform"))}}
+  {{else if (or (eq page.component.name "platforms-overview") (isInGroup page.component "platforms"))}}
     <a class="nav-link" href="{{siteRootPath}}/platforms-overview/index.html">Platforms</a>
+  {{else if (or (eq page.component.name "under-dev-overview") (eq page.component.name "under-development") (isInGroup page.component "under-development") )}}
+    <a class="nav-link" href="{{siteRootPath}}/under-dev-overview/index.html">Under Development</a>
   {{else}}
     <span class="title">{{page.component.title}}</span>
   {{/if}}
