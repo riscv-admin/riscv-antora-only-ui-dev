@@ -13,8 +13,6 @@
     <a class="nav-link" href="{{siteRootPath}}/app-enablement-overview/index.html">Application Enablement</a>
   {{else if (or (eq page.component.name "platforms-overview") (isInGroup page.component "platforms"))}}
     <a class="nav-link" href="{{siteRootPath}}/platforms-overview/index.html">Platforms</a>
-  {{else if (or (eq page.component.name "under-dev-overview") (eq page.component.name "under-development") (isInGroup page.component "under-development") )}}
-    <a class="nav-link" href="{{siteRootPath}}/under-dev-overview/index.html">Under Development</a>
   {{else}}
     <span class="title">{{page.component.title}}</span>
   {{/if}}
