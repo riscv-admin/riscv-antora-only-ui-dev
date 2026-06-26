@@ -1,0 +1,5 @@
+{{#with (or page.attributes.watermark (lookup page.componentVersion.asciidoc.attributes "watermark"))}}
+<div class="watermark watermark-{{this}}" aria-hidden="true">
+  <img src="/_/img/{{this}}.svg" alt="" class="watermark-image" />
+</div>
+{{/with}}

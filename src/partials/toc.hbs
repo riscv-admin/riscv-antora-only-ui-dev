@@ -56,6 +56,15 @@
         </a>
       {{/if}}
 
+      {{#with (or page.attributes.jira-url (lookup page.componentVersion.asciidoc.attributes "jira-url"))}}
+        <a href="{{this}}" target="_blank" rel="noopener noreferrer" title="Jira">
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" width="24" height="24">
+            <path fill="currentColor" d="M12 0C5.373 0 0 5.373 0 12s5.373 12 12 12 12-5.373 12-12S18.627 0 12 0m0 2c5.523 0 10 4.477 10 10s-4.477 10-10 10S2 17.523 2 12 6.477 2 12 2m-1 5h2v7h-2zm0-3h2v2h-2z"/>
+          </svg>
+          Jira Board
+        </a>
+      {{/with}}
+
       {{#if (eq page.module "unpriv")}}
         <a href="{{page.attributes.wiki_url_unpriv}}" target="_blank" rel="noopener noreferrer" class="sidebar-link">
           <svg viewBox="0 0 500 500" xmlns="http://www.w3.org/2000/svg"><circle cx="250" cy="250" r="193" fill="none" stroke="currentColor" stroke-width="23" stroke-miterlimit="10"/><circle cx="148.5" cy="250" r="31.5" fill="currentColor"/><circle cx="250" cy="250" r="31.5" fill="currentColor"/><circle cx="351.5" cy="250" r="31.5" fill="currentColor"/></svg>
