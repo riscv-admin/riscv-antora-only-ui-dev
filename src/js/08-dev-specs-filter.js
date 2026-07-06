@@ -57,10 +57,10 @@ document.addEventListener('DOMContentLoaded', function() {
     if (sortBy === 'name') {
       filtered.sort((a, b) => a.title.localeCompare(b.title))
     } else if (sortBy === 'state') {
-      const stateOrder = { draft: 0, review: 1, frozen: 2, ratified: 3 }
+      const stateOrder = { planning: 0, 'under development': 1, stabilization: 2, freeze: 3, 'ratification-ready': 4 }
       filtered.sort((a, b) => {
-        const orderA = stateOrder[a.status.toLowerCase()] || 999
-        const orderB = stateOrder[b.status.toLowerCase()] || 999
+        const orderA = stateOrder[a.status.toLowerCase()] ?? 999
+        const orderB = stateOrder[b.status.toLowerCase()] ?? 999
         return orderA - orderB || a.title.localeCompare(b.title)
       })
     }
