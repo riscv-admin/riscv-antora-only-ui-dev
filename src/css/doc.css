@@ -705,7 +705,12 @@
   display: block;
   position: relative;
   line-height: var(--doc-line-height);
-  margin-bottom: 0.5rem;
+  margin-bottom: 2rem;
+  color: var(--heading-font-color);
+  font-size: 1.15em;
+  font-weight: var(--alt-heading-font-weight);
+  margin: 2rem 0 2rem;
+  cursor: pointer;
 }
 
 .doc details > summary::-webkit-details-marker {

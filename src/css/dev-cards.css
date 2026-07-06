@@ -1,0 +1,162 @@
+.card--dev {
+  border: 3px solid #003262;
+  background: linear-gradient(135deg, #f5f5f5 0%, #eeeeee 100%);
+  position: relative;
+  overflow: hidden;
+  box-shadow: 0 4px 12px rgba(0, 50, 98, 0.15);
+}
+
+.card--dev > * {
+  position: relative;
+  z-index: 1;
+}
+
+.card--dev .card-header {
+  background: linear-gradient(135deg, #e8e8e8 0%, #dcdcdc 100%);
+  border-bottom: 3px solid #003262;
+  padding: 0.75rem;
+}
+
+.card--dev .card-header > div {
+  position: relative;
+  z-index: 2;
+}
+
+.card-meta-container {
+  display: flex;
+  flex-direction: column;
+  gap: 0.5rem;
+  text-align: left;
+}
+
+.card-meta-line {
+  font-size: 0.85rem;
+  font-weight: 500;
+}
+
+.meta-label {
+  color: #444444;
+  font-weight: 600;
+}
+
+.meta-value {
+  color: #666666;
+}
+
+.dev-status {
+  font-size: 0.85rem;
+  color: #666666;
+  font-weight: 600;
+  text-transform: uppercase;
+  letter-spacing: 0.5px;
+}
+
+.dev-badge {
+  display: inline-block;
+  padding: 0.4rem 0.8rem;
+  border-radius: 6px;
+  font-size: 0.8rem;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 0.6px;
+  margin-top: 0.6rem;
+  box-shadow: 0 2px 6px rgba(0, 0, 0, 0.15);
+}
+
+.dev-badge-draft {
+  background-color: #ffc107;
+  color: #333;
+  border: 2px solid #ff9800;
+}
+
+.dev-badge-frozen {
+  background-color: #00bcd4;
+  color: #fff;
+  border: 2px solid #0097a7;
+}
+
+.dev-badge-review {
+  background-color: #8bc34a;
+  color: #fff;
+  border: 2px solid #689f38;
+}
+
+.card--dev .card-body {
+  background-color: #f9f9f9;
+  border-bottom: 1px solid #e8e8e8;
+  padding: 1rem;
+  min-height: auto;
+  display: block;
+}
+
+.card--dev .card-footer {
+  background: linear-gradient(135deg, #f0f0f0 0%, #ebebeb 100%);
+  border-top: 2px solid #003262;
+  padding: 1rem;
+}
+
+.card--dev .card-footer .card-actions {
+  gap: 0.5rem;
+}
+
+.card--dev .button {
+  font-weight: 600;
+  border-radius: 4px;
+  transition: all 0.2s ease;
+}
+
+.card--dev .button--primary {
+  background-color: #444444;
+  color: #fff;
+  border: none;
+}
+
+.card--dev .button--primary:hover {
+  background-color: #222222;
+  transform: translateY(-1px);
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.3);
+}
+
+.card--dev .button--secondary {
+  background-color: #e8e8e8;
+  color: #333;
+  border: 2px solid #444444;
+}
+
+.card--dev .button--secondary:hover {
+  background-color: #444444;
+  color: #fff;
+  transform: translateY(-1px);
+}
+
+.card--dev .card-more-link {
+  color: #444444;
+  font-weight: 600;
+  text-decoration: none;
+  transition: all 0.2s ease;
+}
+
+.card--dev .card-more-link:hover {
+  color: #222222;
+  text-decoration: underline;
+}
+
+.card-grid-dev {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+  gap: 2rem;
+  margin: 2.5rem 0;
+}
+
+@media (min-width: 768px) {
+  .card-grid-dev {
+    grid-template-columns: repeat(3, 1fr);
+  }
+}
+
+@media (max-width: 480px) {
+  .card-grid-dev {
+    grid-template-columns: 1fr;
+  }
+}
+
