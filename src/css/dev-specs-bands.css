@@ -82,8 +82,8 @@
 }
 
 .dev-specs-bands {
-  display: flex;
-  flex-direction: column;
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
   gap: 1rem;
 }
 
@@ -219,6 +219,10 @@
 
   .dev-specs-controls {
     justify-content: flex-start;
+  }
+
+  .dev-specs-bands {
+    grid-template-columns: 1fr;
   }
 
   .band-meta {
