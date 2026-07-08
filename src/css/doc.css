@@ -50,9 +50,17 @@
   margin-top: 1rem;
 }
 
-#preamble + .sect1,
-.doc .sect1 + .sect1 {
+#preamble + .sect1 {
   margin-top: 2rem;
+}
+
+article.doc[data-component="home"] details {
+  margin: 0 !important;
+}
+
+article.doc[data-component="home"] details > summary {
+  margin: 0 !important;
+  margin-bottom: 0 !important;
 }
 
 .doc h1.sect0 {
@@ -705,12 +713,16 @@
   display: block;
   position: relative;
   line-height: var(--doc-line-height);
-  margin-bottom: 2rem;
+  margin-bottom: 0;
   color: var(--heading-font-color);
   font-size: 1.15em;
   font-weight: var(--alt-heading-font-weight);
-  margin: 2rem 0 2rem;
+  margin: 0;
   cursor: pointer;
+}
+
+.doc details[open] > summary {
+  margin-bottom: 1rem;
 }
 
 .doc details > summary::-webkit-details-marker {
