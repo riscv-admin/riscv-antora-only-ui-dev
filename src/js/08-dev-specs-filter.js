@@ -65,13 +65,15 @@ document.addEventListener('DOMContentLoaded', function() {
       })
     }
 
-    // Show/hide bands
+    // Reorder and show/hide bands
     specData.forEach(spec => {
       spec.element.classList.add('hidden')
     })
 
+    const bandsContainer = container.querySelector('.dev-specs-bands')
     filtered.forEach(spec => {
       spec.element.classList.remove('hidden')
+      bandsContainer.appendChild(spec.element)
     })
 
     // Show "no results" message
