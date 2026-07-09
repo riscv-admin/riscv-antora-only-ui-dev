@@ -18,8 +18,9 @@ document.addEventListener('DOMContentLoaded', function() {
 
   function filterAndSort() {
     const searchTerm = (searchInput?.value || '').toLowerCase()
+    const allStatusActive = container.querySelector('.filter-all-status')?.classList.contains('active')
     const activeFilters = {
-      status: Array.from(filterBtns)
+      status: allStatusActive ? [] : Array.from(filterBtns)
         .filter(btn => btn.dataset.type === 'status' && btn.classList.contains('active'))
         .map(btn => btn.dataset.value),
       group: Array.from(filterBtns)
@@ -94,10 +95,46 @@ document.addEventListener('DOMContentLoaded', function() {
   searchInput?.addEventListener('input', filterAndSort)
   sortSelect?.addEventListener('change', filterAndSort)
 
+  const allStatusBtn = container.querySelector('.filter-all-status')
+  const statusBtns = Array.from(filterBtns).filter(btn => btn.dataset.type === 'status')
+  const groupBtns = Array.from(filterBtns).filter(btn => btn.dataset.type === 'group')
+
+  function updateAllStatesButton() {
+    const activeStatusCount = statusBtns.filter(btn => btn.classList.contains('active')).length
+    if (activeStatusCount === statusBtns.length) {
+      allStatusBtn?.classList.add('active')
+      statusBtns.forEach(btn => btn.classList.remove('active'))
+      filterAndSort()
+    }
+  }
+
+  allStatusBtn?.addEventListener('click', function() {
+    this.classList.toggle('active')
+    statusBtns.forEach(btn => btn.classList.remove('active'))
+    filterAndSort()
+  })
+
   filterBtns.forEach(btn => {
     btn.addEventListener('click', function() {
+      if (this.dataset.type === 'status') {
+        allStatusBtn?.classList.remove('active')
+      }
+
+      // Handle mutually exclusive group filters
+      if (this.dataset.type === 'group') {
+        groupBtns.forEach(groupBtn => {
+          if (groupBtn !== this) {
+            groupBtn.classList.remove('active')
+          }
+        })
+      }
+
       this.classList.toggle('active')
-      filterAndSort()
+      if (this.dataset.type === 'status') {
+        updateAllStatesButton()
+      } else {
+        filterAndSort()
+      }
     })
   })
 })
