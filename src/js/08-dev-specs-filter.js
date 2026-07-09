@@ -104,8 +104,8 @@ document.addEventListener('DOMContentLoaded', function() {
     if (activeStatusCount === statusBtns.length) {
       allStatusBtn?.classList.add('active')
       statusBtns.forEach(btn => btn.classList.remove('active'))
-      filterAndSort()
     }
+    filterAndSort()
   }
 
   allStatusBtn?.addEventListener('click', function() {
