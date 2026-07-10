@@ -13,19 +13,19 @@
 // prefix and contains wildcards automatically -- so we strip them from the input
 // before the search (bound on a debounced keydown) reads the value.
 document.addEventListener('DOMContentLoaded', function () {
-  const searchInput = document.getElementById('search-input')
-  if (!searchInput) return
+  document.addEventListener('input', function (e) {
+    const searchInput = e.target
+    if (!searchInput || searchInput.id !== 'search-input') return
 
-  searchInput.addEventListener('input', function () {
     const value = searchInput.value
     const cleaned = value.replace(/[\\*]/g, '')
     if (cleaned === value) return
 
     // Preserve the caret, accounting for characters removed before it.
-    const caret = searchInput.selectionStart || 0
+    const caret = searchInput.selectionStart ?? 0
     const removedBeforeCaret = (value.slice(0, caret).match(/[\\*]/g) || []).length
     searchInput.value = cleaned
-    const newCaret = caret - removedBeforeCaret
-    searchInput.setSelectionRange(newCaret, newCaret)
-  })
+    const newCaret = Math.max(0, caret - removedBeforeCaret)
+    try { searchInput.setSelectionRange(newCaret, newCaret) } catch {}
+  }, true)
 })
