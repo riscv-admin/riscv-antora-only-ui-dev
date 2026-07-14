@@ -71,6 +71,10 @@ article.doc[data-component="home"] details > summary {
   display: none;
 }
 
+.doc > h1#page-title + aside + #preamble + .sect1 > h2:first-child {
+  display: none;
+}
+
 .doc h1.sect0 {
   background: var(--abstract-background);
   font-size: 1.8em;
