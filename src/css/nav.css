@@ -1,6 +1,9 @@
 /* Bold only the top-level RISC-V Specifications link */
 .nav-menu > .nav-list > .nav-item:first-child > .nav-link {
   font-weight: bold;
+  width: calc(100% + 2.5rem);
+  margin-right: -2.5rem;
+  padding-right: 2.5rem;
 }
 /* Unify hover shading for context title and nav links */
 .context {
@@ -19,7 +22,7 @@
 .nav-link,
 .nav-text {
   display: inline-block;
-  padding: 0.4rem 0.75rem;
+  padding: 0.4rem 0.1rem 0.4rem 0.75rem;
   border-radius: 3px;
   margin: 0 0 0 0.5rem;
   max-width: 100%;
@@ -149,10 +152,7 @@ html.is-clipped--nav {
   /* overflow-y: hidden; */
 }
 
-.nav-panel-menu {
-  overflow-y: auto;
-  height: var(--nav-panel-menu-height);
-}
+
 
 .nav-panel-menu:not(.is-active) .nav-menu {
   opacity: 0.75;
@@ -366,6 +366,55 @@ html.dark-theme .riscvlogo--dark {
   color: var(--link_hover-font-color);
 }
 
+.nav-panel-menu {
+  overflow-y: auto;
+  overflow-x: visible;
+  height: var(--nav-panel-menu-height);
+}
+
+.nav-panel-menu:not(.is-active) .nav-menu {
+  opacity: 0.75;
+}
+
+.nav-panel-menu:not(.is-active)::after {
+  content: "";
+  background: rgba(0, 0, 0, 0.5);
+  display: block;
+  position: absolute;
+  top: 0;
+  right: 0;
+  bottom: 0;
+  left: 0;
+}
+
+html.is-clipped--nav {
+  /* overflow-y: hidden; */
+}
+
+.nav-panel-menu:not(.is-active) .nav-menu {
+  opacity: 0.75;
+}
+
+.nav-panel-menu:not(.is-active)::after {
+  content: "";
+  background: rgba(0, 0, 0, 0.5);
+  display: block;
+  position: absolute;
+  top: 0;
+  right: 0;
+  bottom: 0;
+  left: 0;
+}
+
+.nav-panel-menu:not(.is-active) .nav-menu {
+  opacity: 0.75;
+}
+
+.nav-panel-menu {
+  overflow-y: auto;
+  height: var(--nav-panel-menu-height);
+}
+
 .nav-panel-menu .context {
   background: var(--nav-background, #fff);
   margin-bottom: 0.5rem;
@@ -374,6 +423,9 @@ html.dark-theme .riscvlogo--dark {
   z-index: 99;
   border-bottom: 4px solid #fdb515;
   box-shadow: 0 2px 8px -4px rgba(0,0,0,0.08);
+  width: calc(100% + 5rem);
+  margin-left: -5rem;
+  padding-left: 5rem;
 }
 
 /* Removed duplicate .nav-panel-menu .context .title block for clarity */
@@ -386,7 +438,14 @@ html.dark-theme .riscvlogo--dark {
   min-height: 2.25rem;
   white-space: normal;
   overflow-wrap: anywhere;
-  padding-right: 0.25rem;
+  padding-right: 5rem;
+}
+
+.nav-menu > .nav-list > .nav-item:not(:first-child) > .nav-link,
+.nav-menu > .nav-list > .nav-item:not(:first-child) > .nav-text,
+.nav-menu > .nav-trees > .nav-version-group > .nav-list > .nav-item > .nav-link,
+.nav-menu > .nav-trees > .nav-version-group > .nav-list > .nav-item > .nav-text {
+  padding-right: 0.1rem;
 }
 
 button.browse-version {
