@@ -65,13 +65,17 @@
   margin-bottom: 1rem;
 }
 
+.nav-version-group {
+  overflow: hidden;
+}
+
 .version-box {
   margin: 0;
   float: right;
   display: inline-block;
   margin-top: 0.3rem;
   position: relative;
-  z-index: 200;
+  z-index: 50;
   right: -0.75rem;
 }
 
@@ -105,7 +109,7 @@
   -moz-appearance: none;
   background-color: var(--nav-background, #fff);
   position: relative;
-  z-index: 201;
+  z-index: 51;
 }
 
 .select-version::-ms-expand {
@@ -349,12 +353,17 @@ html.dark-theme .riscvlogo--dark {
 }
 
 .is-current-page > .nav-link,
-.is-current-page > .nav-text,
-.is-current-page > .nav-link:hover,
-.is-current-page > .nav-text:hover {
+.is-current-page > .nav-text {
   font-weight: var(--body-font-weight-bold);
   background: var(--selected-background-color);
   color: var(--toc-active-font-color);
+}
+
+.is-current-page > .nav-link:hover,
+.is-current-page > .nav-text:hover {
+  font-weight: var(--body-font-weight-bold);
+  background: rgba(0, 50, 98, 0.06);
+  color: var(--link_hover-font-color);
 }
 
 .nav-panel-menu .context {
