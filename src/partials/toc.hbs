@@ -150,7 +150,7 @@
 </script>
       {{else}}
         {{#if (or page.attributes.pdf_url (lookup page.componentVersion.asciidoc.attributes "page-pdf_url"))}}
-          <a href="/{{page.componentVersion.name}}/{{page.componentVersion.version}}/{{or page.attributes.pdf_url (lookup page.componentVersion.asciidoc.attributes "page-pdf_url")}}" title="PDF" class="sidebar-link" download>
+          <a href="/reference/{{page.componentVersion.name}}/{{page.componentVersion.version}}/{{or page.attributes.pdf_url (lookup page.componentVersion.asciidoc.attributes "page-pdf_url")}}" title="PDF" class="sidebar-link" download>
             <i class="fa fa-file-pdf-o" aria-hidden="true"></i>
             <span>Download PDF</span>
           </a>
