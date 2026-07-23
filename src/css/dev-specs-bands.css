@@ -96,7 +96,7 @@
 
 .dev-specs-bands {
   display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+  grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
   gap: 1rem;
 }
 
@@ -107,6 +107,8 @@
   border-radius: 4px;
   transition: all 0.2s ease;
   box-shadow: 0 2px 4px rgba(0, 50, 98, 0.08);
+  max-width: 250px;
+  max-height: 350px;
 }
 
 .dev-spec-band:hover {
