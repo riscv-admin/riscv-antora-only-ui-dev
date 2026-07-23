@@ -58,7 +58,7 @@ document.addEventListener('DOMContentLoaded', function() {
     if (sortBy === 'name') {
       filtered.sort((a, b) => a.title.localeCompare(b.title))
     } else if (sortBy === 'state') {
-      const stateOrder = { planning: 0, 'under development': 1, stabilization: 2, freeze: 3, 'ratification-ready': 4 }
+      const stateOrder = { stabilization: 0, freeze: 1, 'ratification-ready': 2 }
       filtered.sort((a, b) => {
         const orderA = stateOrder[a.status.toLowerCase()] ?? 999
         const orderB = stateOrder[b.status.toLowerCase()] ?? 999

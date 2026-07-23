@@ -33,7 +33,7 @@
   padding: 0.75rem 1rem;
   border: 2px solid #ddd;
   border-radius: 4px;
-  font-size: 0.95rem;
+  font-size: 0.85rem;
   transition: border-color 0.2s ease;
 }
 
@@ -62,7 +62,7 @@
   color: #444444;
   border-radius: 20px;
   cursor: pointer;
-  font-size: 0.85rem;
+  font-size: 0.75rem;
   font-weight: 500;
   transition: all 0.2s ease;
 }
@@ -84,7 +84,7 @@
   background-color: #f5f5f5;
   color: #444444;
   border-radius: 4px;
-  font-size: 0.85rem;
+  font-size: 0.75rem;
   cursor: pointer;
   transition: border-color 0.2s ease;
 }
@@ -101,7 +101,7 @@
 }
 
 .dev-spec-band {
-  border-left: 4px solid #003262;
+  border: 1px solid #003262;
   background-color: #f9f9f9;
   padding: 1.5rem;
   border-radius: 4px;
@@ -115,7 +115,7 @@
 }
 
 .band-title {
-  font-size: 0.95rem;
+  font-size: 0.85rem;
   font-weight: 600;
   color: #333;
   margin-bottom: 0.75rem;
@@ -136,7 +136,7 @@
   display: inline-block;
   padding: 0.35rem 0.75rem;
   border-radius: 20px;
-  font-size: 0.75rem;
+  font-size: 0.65rem;
   font-weight: 600;
 }
 
@@ -172,7 +172,7 @@
   color: #444444;
   border-radius: 4px;
   text-decoration: none;
-  font-size: 0.75rem;
+  font-size: 0.65rem;
   font-weight: 500;
   cursor: pointer;
   transition: all 0.2s ease;
@@ -200,7 +200,7 @@
 .spec-more-link {
   color: #003262;
   font-weight: 600;
-  font-size: 0.8rem;
+  font-size: 0.7rem;
   text-decoration: none;
   transition: color 0.2s ease;
 }
@@ -218,7 +218,7 @@
   text-align: center;
   padding: 2rem;
   color: #666;
-  font-size: 1rem;
+  font-size: 0.9rem;
 }
 
 @media (max-width: 768px) {
