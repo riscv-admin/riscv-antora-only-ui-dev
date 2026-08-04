@@ -154,6 +154,17 @@ footer #spring-links a:hover {
   margin-left: auto;
 }
 
+.sidebar-divider {
+  border: none;
+  border-top: 1px solid var(--body-font-color);
+  margin: 12px 0;
+  opacity: 0.3;
+}
+
+html.dark-theme .sidebar-divider {
+  border-top-color: #555;
+}
+
 html.dark-theme .sidebar-links a svg {
   fill: #fff;
 }
