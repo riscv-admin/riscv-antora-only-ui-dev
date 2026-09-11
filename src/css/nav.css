@@ -658,9 +658,14 @@ body.nav-sm .nav-panel-menu {
   content: none;
 }
 
-/* Default = light mode */
+/* Default = light mode. The explicit height matters: content: url() renders each
+   theme's SVG at its intrinsic size, and risc-v_logo_white.svg declares none, so
+   without it the dark-theme logo fills the whole content column. 76.6px is the
+   light logo's own height, so light mode renders exactly as before. */
 #riscvlogo {
   content: url("../img/risc-v_logo.svg");
+  height: 76.6px;
+  width: auto;
 }
 
 /* Dark mode (your theme toggles html.dark-theme) */
