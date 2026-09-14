@@ -212,7 +212,29 @@ html.is-clipped--nav {
   padding-left: 5px;
 }
 
-.nav-menu > .nav-list .nav-list {
+/* Match the version picker's right edge: .version-box reaches
+   0.75rem past the normal content edge (it's shifted with
+   position:relative; right:-0.75rem). The top-level list under a
+   .nav-trees keeps .nav-list's own padding-right: 1rem on top of that,
+   so item text stopped 1.75rem short of the picker's edge. Zero that
+   padding and match the picker's own rightward shift with an equal
+   negative margin, so text at every depth (nested lists inherit this
+   same content edge — see the reset below) reaches exactly as far
+   right as the picker does. */
+.nav-trees > .nav-version-group > .nav-list,
+.nav-menu > .version-box ~ .nav-list {
+  padding-right: 0;
+  margin-right: -0.75rem;
+}
+
+/* Descendant (not direct-child) combinator on the outer .nav-list: a
+   grouped component's list is nested under .nav-trees > .nav-version-group,
+   not a direct child of .nav-menu. With `>` here, that extra wrapper meant
+   this reset never matched inside .nav-trees, so every nesting level kept
+   re-applying .nav-list's own padding-right: 1rem — chapter text several
+   levels deep ended up inset far more than the top-level item, well short
+   of the version picker's right edge. */
+.nav-menu .nav-list .nav-list {
   padding: 0;
   margin: 0 0 0 0.5rem;
 }
