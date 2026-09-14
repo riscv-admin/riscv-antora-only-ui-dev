@@ -404,6 +404,22 @@ html.dark-theme .riscvlogo--dark {
   color: var(--link_hover-font-color);
 }
 
+/* Current page's own headings, mirrored in from the on-page TOC by
+   02-on-this-page.js. Always expanded (no .nav-item-toggle is rendered for
+   these), so they're styled a touch lighter/smaller than real nav.adoc
+   pages, and .is-active (toggled by that same script's scroll-spying)
+   marks whichever one is currently in view. */
+.nav-heading-item > .nav-link {
+  font-size: 0.9em;
+  color: var(--nav-text-color, inherit);
+}
+
+.nav-heading-item > .nav-link.is-active {
+  font-weight: var(--body-font-weight-bold);
+  background: var(--selected-background-color);
+  color: var(--toc-active-font-color);
+}
+
 .nav-panel-menu {
   overflow-y: auto;
   overflow-x: visible;
