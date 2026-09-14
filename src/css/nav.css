@@ -68,15 +68,24 @@
 /* Version selector styles */
 .nav-trees {
   margin-bottom: 1rem;
+  /* Contain the floated .version-box so this component's box has the
+     correct height and the next grouped component's .nav-trees can't
+     collapse up underneath it. This is a plain clearfix on the element
+     that owns the float, not a "must not overlap" constraint on content
+     that comes after it, so it doesn't reintroduce the width-squeeze bug
+     below (see .nav-version-group). */
+  display: flow-root;
 }
 
 .nav-version-group {
-  /* Drop below the floated .version-box (version picker) instead of
-     establishing a new block formatting context beside it. A BFC box next
-     to a float is sized once against the leftover width and keeps that
-     narrow width for its whole height, which squeezed the entire nav tree
-     down to the picker's width instead of just the row it sits on. */
-  clear: both;
+  /* Deliberately no overflow/BFC here: .version-box floats beside the
+     first nav item (the component title), so the title text wraps next
+     to the picker the way normal inline content wraps around a float,
+     and every nav item after that — once its box starts below the
+     picker's bottom edge — renders at the full nav width. A block
+     formatting context here (e.g. overflow:hidden) would instead avoid
+     overlapping the float for its *entire* height, squeezing the whole
+     nav tree down to the picker's leftover width. */
 }
 
 .version-box {
@@ -201,13 +210,6 @@ html.is-clipped--nav {
   padding: 0;
   padding-right: 1rem;
   padding-left: 5px;
-}
-
-/* Standalone (non-grouped) nav: .nav-list sits directly beside the floated
-   .version-box. Clear it so the tree drops fully below the picker and uses
-   the full nav width, matching .nav-version-group above. */
-.nav-menu > .version-box ~ .nav-list {
-  clear: both;
 }
 
 .nav-menu > .nav-list .nav-list {
@@ -444,9 +446,9 @@ html.is-clipped--nav {
 
 /* Removed duplicate .nav-panel-menu .context .title block for clarity */
 
-/* Now that .nav-list (standalone) and .nav-version-group (grouped) clear
-   the floated .version-box above, no nav item overlaps the picker anymore,
-   so the first item no longer needs the old flow-root/padding-right(5rem)
+/* The first nav item's own inline-block sizing already keeps it clear of
+   the floated .version-box (it wraps beside it like any inline content
+   would), so it no longer needs the old flow-root/padding-right(5rem)
    overlap workaround — it can use the same padding as every other item. */
 .nav-menu > .nav-list > .nav-item > .nav-link,
 .nav-menu > .nav-list > .nav-item > .nav-text,
