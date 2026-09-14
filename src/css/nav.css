@@ -28,6 +28,8 @@
   max-width: 100%;
   transition: background 0.15s;
   font-weight: normal;
+  white-space: normal;
+  overflow-wrap: anywhere;
 }
 
 /* Bold for context title */
@@ -66,10 +68,24 @@
 /* Version selector styles */
 .nav-trees {
   margin-bottom: 1rem;
+  /* Contain the floated .version-box so this component's box has the
+     correct height and the next grouped component's .nav-trees can't
+     collapse up underneath it. This is a plain clearfix on the element
+     that owns the float, not a "must not overlap" constraint on content
+     that comes after it, so it doesn't reintroduce the width-squeeze bug
+     below (see .nav-version-group). */
+  display: flow-root;
 }
 
 .nav-version-group {
-  overflow: hidden;
+  /* Deliberately no overflow/BFC here: .version-box floats beside the
+     first nav item (the component title), so the title text wraps next
+     to the picker the way normal inline content wraps around a float,
+     and every nav item after that — once its box starts below the
+     picker's bottom edge — renders at the full nav width. A block
+     formatting context here (e.g. overflow:hidden) would instead avoid
+     overlapping the float for its *entire* height, squeezing the whole
+     nav tree down to the picker's leftover width. */
 }
 
 .version-box {
@@ -196,7 +212,29 @@ html.is-clipped--nav {
   padding-left: 5px;
 }
 
-.nav-menu > .nav-list .nav-list {
+/* Match the version picker's right edge: .version-box reaches
+   0.75rem past the normal content edge (it's shifted with
+   position:relative; right:-0.75rem). The top-level list under a
+   .nav-trees keeps .nav-list's own padding-right: 1rem on top of that,
+   so item text stopped 1.75rem short of the picker's edge. Zero that
+   padding and match the picker's own rightward shift with an equal
+   negative margin, so text at every depth (nested lists inherit this
+   same content edge — see the reset below) reaches exactly as far
+   right as the picker does. */
+.nav-trees > .nav-version-group > .nav-list,
+.nav-menu > .version-box ~ .nav-list {
+  padding-right: 0;
+  margin-right: -0.75rem;
+}
+
+/* Descendant (not direct-child) combinator on the outer .nav-list: a
+   grouped component's list is nested under .nav-trees > .nav-version-group,
+   not a direct child of .nav-menu. With `>` here, that extra wrapper meant
+   this reset never matched inside .nav-trees, so every nesting level kept
+   re-applying .nav-list's own padding-right: 1rem — chapter text several
+   levels deep ended up inset far more than the top-level item, well short
+   of the version picker's right edge. */
+.nav-menu .nav-list .nav-list {
   padding: 0;
   margin: 0 0 0 0.5rem;
 }
@@ -430,19 +468,12 @@ html.is-clipped--nav {
 
 /* Removed duplicate .nav-panel-menu .context .title block for clarity */
 
-.nav-menu > .version-box ~ .nav-list > .nav-item:first-child > .nav-link,
-.nav-menu > .version-box ~ .nav-list > .nav-item:first-child > .nav-text,
-.nav-menu > .nav-trees > .version-box ~ .nav-version-group > .nav-list > .nav-item:first-child > .nav-link,
-.nav-menu > .nav-trees > .version-box ~ .nav-version-group > .nav-list > .nav-item:first-child > .nav-text {
-  display: flow-root;
-  min-height: 2.25rem;
-  white-space: normal;
-  overflow-wrap: anywhere;
-  padding-right: 5rem;
-}
-
-.nav-menu > .nav-list > .nav-item:not(:first-child) > .nav-link,
-.nav-menu > .nav-list > .nav-item:not(:first-child) > .nav-text,
+/* The first nav item's own inline-block sizing already keeps it clear of
+   the floated .version-box (it wraps beside it like any inline content
+   would), so it no longer needs the old flow-root/padding-right(5rem)
+   overlap workaround — it can use the same padding as every other item. */
+.nav-menu > .nav-list > .nav-item > .nav-link,
+.nav-menu > .nav-list > .nav-item > .nav-text,
 .nav-menu > .nav-trees > .nav-version-group > .nav-list > .nav-item > .nav-link,
 .nav-menu > .nav-trees > .nav-version-group > .nav-list > .nav-item > .nav-text {
   padding-right: 0.1rem;
