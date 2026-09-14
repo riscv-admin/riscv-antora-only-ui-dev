@@ -28,6 +28,8 @@
   max-width: 100%;
   transition: background 0.15s;
   font-weight: normal;
+  white-space: normal;
+  overflow-wrap: anywhere;
 }
 
 /* Bold for context title */
@@ -69,7 +71,12 @@
 }
 
 .nav-version-group {
-  overflow: hidden;
+  /* Drop below the floated .version-box (version picker) instead of
+     establishing a new block formatting context beside it. A BFC box next
+     to a float is sized once against the leftover width and keeps that
+     narrow width for its whole height, which squeezed the entire nav tree
+     down to the picker's width instead of just the row it sits on. */
+  clear: both;
 }
 
 .version-box {
@@ -194,6 +201,13 @@ html.is-clipped--nav {
   padding: 0;
   padding-right: 1rem;
   padding-left: 5px;
+}
+
+/* Standalone (non-grouped) nav: .nav-list sits directly beside the floated
+   .version-box. Clear it so the tree drops fully below the picker and uses
+   the full nav width, matching .nav-version-group above. */
+.nav-menu > .version-box ~ .nav-list {
+  clear: both;
 }
 
 .nav-menu > .nav-list .nav-list {
@@ -430,19 +444,12 @@ html.is-clipped--nav {
 
 /* Removed duplicate .nav-panel-menu .context .title block for clarity */
 
-.nav-menu > .version-box ~ .nav-list > .nav-item:first-child > .nav-link,
-.nav-menu > .version-box ~ .nav-list > .nav-item:first-child > .nav-text,
-.nav-menu > .nav-trees > .version-box ~ .nav-version-group > .nav-list > .nav-item:first-child > .nav-link,
-.nav-menu > .nav-trees > .version-box ~ .nav-version-group > .nav-list > .nav-item:first-child > .nav-text {
-  display: flow-root;
-  min-height: 2.25rem;
-  white-space: normal;
-  overflow-wrap: anywhere;
-  padding-right: 5rem;
-}
-
-.nav-menu > .nav-list > .nav-item:not(:first-child) > .nav-link,
-.nav-menu > .nav-list > .nav-item:not(:first-child) > .nav-text,
+/* Now that .nav-list (standalone) and .nav-version-group (grouped) clear
+   the floated .version-box above, no nav item overlaps the picker anymore,
+   so the first item no longer needs the old flow-root/padding-right(5rem)
+   overlap workaround — it can use the same padding as every other item. */
+.nav-menu > .nav-list > .nav-item > .nav-link,
+.nav-menu > .nav-list > .nav-item > .nav-text,
 .nav-menu > .nav-trees > .nav-version-group > .nav-list > .nav-item > .nav-link,
 .nav-menu > .nav-trees > .nav-version-group > .nav-list > .nav-item > .nav-text {
   padding-right: 0.1rem;
