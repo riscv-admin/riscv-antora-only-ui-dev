@@ -147,6 +147,21 @@ image::/_/img/spring-logo.svg[Embedded,300,opts=inline]
 [.invert-dark]
 image::/_/img/lorem.png[Spring,100]
 
+=== Image opt out of dark mode invert
+
+Images inside `.doc` are inverted by default in dark mode (see `html.dark-theme .doc img` in main.css).
+Diagrams whose colors carry meaning (e.g. black-fill vs. white-fill boxes) can opt out with `.no-invert`,
+so they keep their authored colors instead of being color-reversed.
+
+Default (gets inverted, colors reversed):
+
+image::/_/img/privimps.png[Default invert,600]
+
+Opted out with `.no-invert` (keeps authored colors):
+
+[.no-invert]
+image::/_/img/privimps.png[No invert,600]
+
 [.impact]
 == Text formatting
 
