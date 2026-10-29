@@ -332,6 +332,9 @@ html.dark-theme #modal-versions .version-toggle span {
 html.dark-theme .doc img {
   filter: invert(1);
 }
+html.dark-theme .doc .no-invert img {
+  filter: none;
+}
 html.dark-theme #modal-versions .modal-versions-close .cls-1h {
   stroke: white;
 }
